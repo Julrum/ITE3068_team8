@@ -11,7 +11,7 @@ const Headerbar = () => {
     <StyledHeaderbar>
       <StyledTitle to="/">Daesun</StyledTitle>
       <StyledButtonArea>
-        <StyledLink to="/">선거정보</StyledLink>
+        <StyledLink to="/info">선거정보</StyledLink>
         <StyledLink to="/">후보정보</StyledLink>
         <StyledLink to="/">뉴스</StyledLink>
         <StyledLink to="/">여론조사</StyledLink>
