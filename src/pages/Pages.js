@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import WithHeaderbar from '../components/templates/WithHeaderbar/WithHeaderbar';
 import { Cand1, Cand2, Cand3, Cand4, Candidates } from './Candidates';
-import Home from './Home/';
+import Home from './Home';
 import Info from './Info';
 
 const Pages = () => (
