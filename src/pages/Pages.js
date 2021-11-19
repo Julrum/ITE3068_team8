@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import WithHeaderbar from '../components/templates/WithHeaderbar/WithHeaderbar';
-import Home from './Home/';
+import Home from './Home';
 import Info from './Info';
 
 const Pages = () => (
