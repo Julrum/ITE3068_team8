@@ -4,9 +4,6 @@ import PollPageContent from '../../components/templates/PollPageContent/PollPage
 const Poll = () => {
   return (
     <PollPageContent>
-      <div>
-        Poll Page Test
-      </div>
     </PollPageContent>
   );
 };
