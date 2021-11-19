@@ -4,6 +4,7 @@ import WithHeaderbar from '../components/templates/WithHeaderbar/WithHeaderbar';
 import { Cand1, Cand2, Cand3, Cand4, Candidates } from './Candidates';
 import Home from './Home';
 import Info from './Info';
+import Poll from './Poll';
 
 const Pages = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const Pages = () => (
           <Route path="candidates/cand2" element={<Cand2 />} />
           <Route path="candidates/cand3" element={<Cand3 />} />
           <Route path="candidates/cand4" element={<Cand4 />} />
+        <Route path="/poll" element={<Poll />} />
       </Routes>
     </WithHeaderbar>
   </BrowserRouter>
