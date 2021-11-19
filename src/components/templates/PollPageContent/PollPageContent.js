@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { StyledPollPageContent } from "./PollPageContent.style";
 import PollSidebar from "../../organisms/PollSidebar";
+import PollChart from "../../organisms/PollChart";
 
+//dummy
 let dataMain = ["Alpha", "Beta", "Gamma", "Delta"];
 let data0 = ["Alpha1"];
 let data1 = ["Beta1", "Beta2"];
@@ -17,19 +19,28 @@ const PollPageContent = () => {
     //console.log(menuMainSelected+', '+menuSubSelected+', '+dataMain);
 
     const handleSelected = (main, sub) => {
-        setMenuMainSelected(1);
-        setMenuSubSelected(3);
-        console.log(main+'//'+sub);
+        setMenuMainSelected(main);
+        setMenuSubSelected(sub);
+        //console.log(main+'//'+sub);
+    }
+
+    const getSelected = () => {
+        return [menuMainSelected, dataMain[menuMainSelected], menuSubSelected, dataTotal[menuMainSelected][menuSubSelected]];
     }
 
     return(
         <StyledPollPageContent>
-            <PollSidebar
-                menuMainData={dataMain}
-                menuSubData={dataTotal}
-                handleSelected={handleSelected}
-                >
-            </PollSidebar>
+            <div>
+                <PollSidebar
+                    menuMainData={dataMain}
+                    menuSubData={dataTotal}
+                    handleSelected={handleSelected}
+                    >
+                </PollSidebar>
+            </div>
+                <PollChart
+                    getSelected={getSelected}>
+                </PollChart>
         </StyledPollPageContent>
     );
 };
