@@ -11,6 +11,7 @@ export const StyledNewsBox = styled.button`
  background-size: 100% 100%;
  background-repeat: no-repeat;
  padding: 0px;
+ margin: 0 1.5vw;
 `;
 
 export const StyledHeadLine = styled.div`

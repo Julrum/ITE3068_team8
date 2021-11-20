@@ -17,11 +17,12 @@ export const StyledTitle = styled.div`
 `;
 
 export const StyledNewsContainer = styled.div`
- width: 100%;
- height: 100%;
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- padding: 0 240px;
- margin-top: 24px;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+padding: 0 10vw;
+margin-top: 24px;
+overflow: auto;
 `
