@@ -9,7 +9,7 @@ overflow: auto;
   height: 8px;
 }
 background: url(${backgroundimage});
-background-size: 100% 28%;
+background-size: 100% 42%;
 background-repeat: no-repeat;
 background-attachment: local;
 `;
