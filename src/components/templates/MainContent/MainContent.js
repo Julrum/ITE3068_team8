@@ -5,12 +5,15 @@ import {
 import DDay from '../../organisms/DDay';
 import TodayNews from '../../organisms/TodayNews';
 import MainRoute from '../../organisms/MainRoute';
+import MainSchedule from '../../organisms/MainSchedule';
 
 const MainContent = () => (
+
   <StyledMainContent>
     <DDay/>
     <TodayNews/>
     <MainRoute/>
+    <MainSchedule/>
   </StyledMainContent>
 );
 
