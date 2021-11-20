@@ -10,6 +10,7 @@ export const StyledHeaderbar = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   box-shadow: 0px 3px 5px ${({ theme }) => theme.colors.boxShawdow};
+  z-index: 20;
 `;
 
 export const StyledTitle = styled(Link)`

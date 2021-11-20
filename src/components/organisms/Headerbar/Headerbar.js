@@ -12,9 +12,9 @@ const Headerbar = () => {
       <StyledTitle to="/">Daesun</StyledTitle>
       <StyledButtonArea>
         <StyledLink to="/info">선거정보</StyledLink>
-        <StyledLink to="/">후보정보</StyledLink>
-        <StyledLink to="/">뉴스</StyledLink>
-        <StyledLink to="/">여론조사</StyledLink>
+        <StyledLink to="/candidates">후보정보</StyledLink>
+        <StyledLink to="/news">뉴스</StyledLink>
+        <StyledLink to="/poll">여론조사</StyledLink>
       </StyledButtonArea>
     </StyledHeaderbar>
   );
