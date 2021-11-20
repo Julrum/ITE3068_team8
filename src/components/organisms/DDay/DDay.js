@@ -14,10 +14,10 @@ const DDay = () => {
 
   useEffect(() => {
     let today = new Date();
-    let diff = election_day - today;
+    let diff = Math.ceil((election_day - today) / (1000 * 86400));
 
-    setDday(Math.ceil(diff / (1000 * 86400)));
-  })
+    if(Dday !== diff) setDday(diff);
+  }, [Dday])
 
   return (
     <StyledTextBox>
