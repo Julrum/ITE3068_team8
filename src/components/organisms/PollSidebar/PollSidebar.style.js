@@ -9,6 +9,12 @@ export const StyledPollSidebarContainer = styled.div`
   box-shadow: 0px 3px 5px ${({ theme }) => theme.colors.boxShawdow};
 `;
 
+export const StyledPollSidebarTitle = styled.div`
+  padding: 0px 0px 50px 0px;
+  font-size: 1.5em;
+  font-weight: 600;
+`;
+
 
 
 //height: calc(100% - 72px);
