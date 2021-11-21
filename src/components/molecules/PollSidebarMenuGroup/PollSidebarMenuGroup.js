@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {StyledPollSidebarMenuMain, StyledPollSidebarMenuSub} from './PollSidebarMenuGroup.style';
+import {StyledPollSidebarButtonMenuMain, StyledPollSidebarButtonMenuSub, StyledPollButtonLine} from './PollSidebarMenuGroup.style';
 
 
-const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, handleSelected}) => {
+const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, handleSelected, getSelected}) => {
     //let {isOpen, menuMainName, menuMainNum, menuSubList, handleSelected} = prop
     //let {menuMainName} = prop;
     //console.log('hipa: '+menuMainName);
@@ -13,22 +13,23 @@ const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, h
     let subMenus = () => {
         return(
             menuSubList.map((item, index) =>
-            <StyledPollSidebarMenuSub
+            <StyledPollSidebarButtonMenuSub
                 key={index}
                 onClick={
                     (e) => {
                         //console.log('clickTest'+item+' / '+menuMainNum+index);
                         handleSelected(menuMainNum, index);
                     }
-                }>
+                }
+                selected={menuMainNum === getSelected()[0] && getSelected()[2] === index ? true : false}>
                 {item}
-            </StyledPollSidebarMenuSub>
+            </StyledPollSidebarButtonMenuSub>
             )
         )
     }
 
     return (<div>
-        <StyledPollSidebarMenuMain
+        <StyledPollSidebarButtonMenuMain
             onClick={
                 (e) => {
                     //console.log('clickTest'+menuMainName);
@@ -36,10 +37,18 @@ const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, h
                     setOpened(!opened)
                     : handleSelected(menuMainNum, 0);
                 }
-            }>
-            {menuMainName}
-        </StyledPollSidebarMenuMain>
+            }
+            selected={menuMainNum === getSelected()[0] ? true : false}>
+            {menuMainNum !== 1 ? menuMainName
+            : opened? menuMainName+'ㅤ∨' : menuMainName+'ㅤ∧'}
+        </StyledPollSidebarButtonMenuMain>
+        <StyledPollButtonLine
+            selected={menuMainNum === getSelected()[0] ? true : false}
+            >
+
+            </StyledPollButtonLine>
         {opened ? subMenus() : ''}
+        
         </div>);
 };
 

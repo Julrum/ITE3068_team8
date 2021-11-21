@@ -27,6 +27,8 @@ const theme = {
     danger: '#EB5757',
     warning: '#FF9400',
     success: '#64E981',
+    pollButtonHover: 'rgba(77, 77, 255, 0.15)',
+    pollButtonBasic: 'rgba(255, 255, 255, 0.25)',
   },
 };
 

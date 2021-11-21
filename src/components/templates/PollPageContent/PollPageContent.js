@@ -35,6 +35,7 @@ const PollPageContent = ({chartDummyData}) => {
                     menuMainData={dataMain}
                     menuSubData={dataTotal}
                     handleSelected={handleSelected}
+                    getSelected={getSelected}
                     >
                 </PollSidebar>
             </div>
