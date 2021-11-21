@@ -5,7 +5,9 @@ const dummyPollMulti = [
         numOfMembers: 5,
         keys: ["lee", "yoon", "sim", "ahn", "others"],
         names: ["이재명", "윤석열", "심상정", "안철수", "기타"],
-        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow]
+        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow],
+        org: "리얼미터",
+        term: "2021년 10월 1일~31일"
     },
     {
       name: '10월 1주차',
@@ -54,7 +56,9 @@ const dummyPollDualOne = [
         numOfMembers: 2,
         keys: ["lee", "yoon"],
         names: ["이재명", "윤석열"],
-        colors: [theme.colors.primary, theme.colors.danger]
+        colors: [theme.colors.primary, theme.colors.danger],
+        org: "한국리서치",
+        term: "2021년 10월 1일~31일"
     },
     {
         name: '10월 1주차',
@@ -63,13 +67,13 @@ const dummyPollDualOne = [
         "others": 14.7,
     },
     {
-        name: '10월 5주차',
+        name: '10월 2주차',
         "lee": 35.8,
         "yoon": 33.2,
         "others": 30.9,
     },
     {
-        name: '10월 6주차',
+        name: '10월 3주차',
         "lee": 43.0,
         "yoon": 40.4,
         "others": 16.6,
@@ -93,7 +97,9 @@ const dummyPollDualTwo = [
         numOfMembers: 2,
         keys: ["lee", "hong"],
         names: ["이재명", "홍준표"],
-        colors: [theme.colors.primary, theme.colors.danger]
+        colors: [theme.colors.primary, theme.colors.danger],
+        org: "한국리서치",
+        term: "2021년 10월 1일~31일"
     },
     {
         name: '10월 1주차',
@@ -132,7 +138,9 @@ const dummyPollAges = [
         numOfMembers: 5,
         keys: ["lee", "yoon", "sim", "ahn", "others"],
         names: ["이재명", "윤석열", "심상정", "안철수", "기타"],
-        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow]
+        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow],
+        org: "코리아리서치",
+        term: "2021년 10월 17일~19일"
     },
     {
         name: '20대',
@@ -181,7 +189,9 @@ const dummyPollRegion = [
         numOfMembers: 5,
         keys: ["lee", "yoon", "sim", "ahn", "others"],
         names: ["이재명", "윤석열", "심상정", "안철수", "기타"],
-        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow]
+        colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow],
+        org: "데일리안",
+        term: "2021년 10월 11일~14일"
     },
     {
         name: "서울/경기/인천",

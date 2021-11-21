@@ -23,15 +23,22 @@ export const StyledPollChartLayout = styled.div`
 `;
 
 export const StyledPollChartTitleTemp = styled.div`
-padding: 20px 40px;
+  padding: 50px 0px 20px 70px;
   font-size: 2em;
+  font-weight: 600;
 `;
 
 export const StyledPollChartContainer = styled.div`
   display: flex;
-  height: 80%;
+  height: 70%;
   width: 80%;
   align-items: center;
   justify-content: center;
-  padding: 30px 30px;
+  padding: 10px 30px;
+`;
+
+export const StyledPollChartDetailedInfo = styled.div`
+  padding: 5px 0px 5px 90px;
+  font-size: 1em;
+  color: ${({ theme }) => theme.colors.placeholder};
 `;

@@ -4,7 +4,7 @@ import PollSidebar from "../../organisms/PollSidebar";
 import PollChart from "../../organisms/PollChart";
 
 //dummy
-let dataMain = ["양자구도", "다자구도", "지역별 지지도", "연령별 지지도"];
+let dataMain = ["다자구도", "양자구도", "지역별 지지도", "연령별 지지도"];
 let data0 = ["Alpha1"];
 let data1 = ["이재명 vs 윤석열", "이재명 vs 홍준표"];
 let data2 = ["Gamma1"];
@@ -21,7 +21,7 @@ const PollPageContent = ({chartDummyData}) => {
     const handleSelected = (main, sub) => {
         setMenuMainSelected(main);
         setMenuSubSelected(sub);
-        console.log(main+'//'+sub);
+        //console.log(main+'//'+sub);
     }
 
     const getSelected = () => {

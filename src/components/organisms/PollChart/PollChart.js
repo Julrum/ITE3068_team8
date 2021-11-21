@@ -1,10 +1,9 @@
 import React from "react";
-import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer } from "./PollChart.style";
+import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer, StyledPollChartDetailedInfo } from "./PollChart.style";
 import PollLineChart from "../../molecules/PollLineChart";
 import PollLineChartSimple from "../../molecules/PollLineChartSimple";
 import PollBarChartVertical from "../../molecules/PollBarChartVertical";
 
-let titleTemp = " ";
 let dummyData;
 let selected;
 
@@ -12,7 +11,7 @@ const PollChart = (prop) => {
     let {getSelected, chartDummyData} = prop;
     selected = getSelected();
     dummyData = chartDummyData;
-    console.log('dummyData is: '+dummyData);
+    //console.log('dummyData is: '+dummyData);
 
     let chartType = (num) => {
       if(num === 0){
@@ -38,53 +37,51 @@ const PollChart = (prop) => {
       }
     }
 
+    let detailedInfo = () => {
+      let orgs = '';
+      let terms = '';
+
+      if(selected[0] === 1){
+        const tmpdata = dummyData[1][selected[2]][0];
+        orgs = tmpdata.org;
+        terms = tmpdata.term;
+      }else{
+        const tmpdata = dummyData[selected[0]][0];
+        orgs = tmpdata.org;
+        terms = tmpdata.term;
+        //console.log('tmpdata: '+tmpdata.org+orgs+terms);
+      }
+
+      return(<div>
+              <StyledPollChartDetailedInfo>
+                {"단위: %"}
+              </StyledPollChartDetailedInfo>
+              <StyledPollChartDetailedInfo>
+                {"조사 기관: "+orgs}
+              </StyledPollChartDetailedInfo>
+              <StyledPollChartDetailedInfo>
+                {"조사 기간: "+terms}
+              </StyledPollChartDetailedInfo>
+            </div>
+            
+      );
+    }
+
     return(
         <StyledPollChartLayout>
             <StyledPollChartTitleTemp>
-                {titleTemp}
-                {/* {'main: '+selected[0]+'-'+selected[1]+', sub: '+selected[2]+'-'+selected[3]} */}
-                {'main: '+selected[1]+', sub: '+selected[3]}
+                {
+                  selected[0] === 1 ? 
+                  selected[1]+': '+selected[3]
+                  : selected[1]
+                }
             </StyledPollChartTitleTemp>
             <StyledPollChartContainer>
 
               {chartType(selected[0])}
-
-              {/* {(e) => {
-                switch(selected[0]){
-                  case 0:
-                    <PollLineChart
-                      data={dummyData[selected[0]]}>
-                    </PollLineChart>
-                  break;
-
-                  case 1:
-                    <PollLineChartSimple
-                      data={dummyData[1][selected[2]]}>
-                    </PollLineChartSimple>
-                  break;
-                  
-                  case 2 && 3:
-                    <PollBarChartVertical
-                      data={dummyData[selected[0]]}>
-                    </PollBarChartVertical>
-                  break;
-
-                  default:
-                  break;
-                }
-              }} */}
-
-              {/* {selected[0] !== 2 && selected[0] !== 3 ?
-                <PollLineChart
-                  
-                  data={selected[0] === 1 ? dummyData[1][selected[2]] : dummyData[selected[0]]}>
-
-                </PollLineChart>
-              : <PollBarChartVertical
-                  data={dummyData[selected[0]]}>
-                </PollBarChartVertical>} */}
                 
             </StyledPollChartContainer>
+            {detailedInfo()}
         </StyledPollChartLayout>
     );
 }
