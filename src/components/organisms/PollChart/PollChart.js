@@ -1,19 +1,88 @@
 import React from "react";
-import { StyledPollChartContainer, StyledPollChartTitleTemp } from "./PollChart.style";
+import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer, StyledPollChartDetailedInfo } from "./PollChart.style";
+import PollLineChart from "../../molecules/PollLineChart";
+import PollLineChartSimple from "../../molecules/PollLineChartSimple";
+import PollBarChartVertical from "../../molecules/PollBarChartVertical";
 
-let titleTemp = "TODO Selected Item: ";
+let dummyData;
+let selected;
 
 const PollChart = (prop) => {
-    let {getSelected} = prop;
-    const selected = getSelected();
+    let {getSelected, chartDummyData} = prop;
+    selected = getSelected();
+    dummyData = chartDummyData;
+    //console.log('dummyData is: '+dummyData);
+
+    let chartType = (num) => {
+      if(num === 0){
+        return(
+          <PollLineChart
+            data={dummyData[selected[0]]}>
+          </PollLineChart>
+        );
+      }else if(num === 1){
+        return(
+          <PollLineChartSimple
+            data={dummyData[1][selected[2]]}>
+          </PollLineChartSimple>
+        );
+      }else if(num === 2 || num === 3){
+        return(
+          <PollBarChartVertical
+            data={dummyData[selected[0]]}>
+          </PollBarChartVertical>
+        );
+      }else{
+        return 'p';
+      }
+    }
+
+    let detailedInfo = () => {
+      let orgs = '';
+      let terms = '';
+
+      if(selected[0] === 1){
+        const tmpdata = dummyData[1][selected[2]][0];
+        orgs = tmpdata.org;
+        terms = tmpdata.term;
+      }else{
+        const tmpdata = dummyData[selected[0]][0];
+        orgs = tmpdata.org;
+        terms = tmpdata.term;
+        //console.log('tmpdata: '+tmpdata.org+orgs+terms);
+      }
+
+      return(<div>
+              <StyledPollChartDetailedInfo>
+                {"단위: %"}
+              </StyledPollChartDetailedInfo>
+              <StyledPollChartDetailedInfo>
+                {"조사 기관: "+orgs}
+              </StyledPollChartDetailedInfo>
+              <StyledPollChartDetailedInfo>
+                {"조사 기간: "+terms}
+              </StyledPollChartDetailedInfo>
+            </div>
+            
+      );
+    }
 
     return(
-        <StyledPollChartContainer>
+        <StyledPollChartLayout>
             <StyledPollChartTitleTemp>
-                {titleTemp}
-                {'main: '+selected[0]+'-'+selected[1]+', sub: '+selected[2]+'-'+selected[3]}
+                {
+                  selected[0] === 1 ? 
+                  selected[1]+': '+selected[3]
+                  : selected[1]
+                }
             </StyledPollChartTitleTemp>
-        </StyledPollChartContainer>
+            <StyledPollChartContainer>
+
+              {chartType(selected[0])}
+                
+            </StyledPollChartContainer>
+            {detailedInfo()}
+        </StyledPollChartLayout>
     );
 }
 

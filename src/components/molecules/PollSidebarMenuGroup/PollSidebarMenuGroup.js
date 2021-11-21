@@ -32,7 +32,9 @@ const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, h
             onClick={
                 (e) => {
                     //console.log('clickTest'+menuMainName);
-                    setOpened(!opened);
+                    menuMainNum === 1 ? 
+                    setOpened(!opened)
+                    : handleSelected(menuMainNum, 0);
                 }
             }>
             {menuMainName}
