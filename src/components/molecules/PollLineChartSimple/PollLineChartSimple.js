@@ -1,7 +1,7 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, LabelList } from 'recharts';
 
-const PollLineChart = ({data}) =>{
+const PollLineChartSimple = ({data}) =>{
 
     // let datum = data;
 
@@ -30,17 +30,31 @@ const PollLineChart = ({data}) =>{
         }
         console.log(array);
 
+        let posArray=[];
+        for(let j = 0; j < valueInfo.length; j++){
+          if(valueInfo[j][mainInfo.keys[0]] >= valueInfo[j][mainInfo.keys[1]]){
+            posArray.push(0);
+          }else{
+            posArray.push(1);
+          }
+        }
+        console.log('posArray: '+posArray);
+
         let Lines = () => {
             return(
                 array.map((item, index) => 
                 <Line
                 key={index}
-                type="monotone"
                 dataKey={mainInfo.keys[index]}
                 name={mainInfo.names[index]}
                 stroke={mainInfo.colors[index]}
-                strokeWidth={5}>
-    
+                strokeWidth={6}>
+                  <LabelList
+                        dataKey={mainInfo.keys[index]}
+                        
+                        // position={posArray[index] === index ? "top" : "bottom"}
+                        
+                  ></LabelList>
                 </Line>
                 )
             );
@@ -62,9 +76,8 @@ const PollLineChart = ({data}) =>{
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend margin={{top: 0}}/>
+            <YAxis tick={false}/>
+            <Legend />
 
             {Lines()}
 
@@ -74,4 +87,4 @@ const PollLineChart = ({data}) =>{
 
   }
 
-export default PollLineChart;
+export default PollLineChartSimple;
