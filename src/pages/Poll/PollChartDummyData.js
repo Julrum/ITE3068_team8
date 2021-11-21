@@ -243,7 +243,7 @@ const dummyPollRegion = [
       },
 ]
 
-const PollChartDummyData = [dummyPollMulti, [dummyPollDualOne, dummyPollDualTwo], dummyPollAges, dummyPollRegion];
+const PollChartDummyData = [dummyPollMulti, [dummyPollDualOne, dummyPollDualTwo], dummyPollRegion, dummyPollAges];
 //const PollChartDummyData = [dummyPollMulti, dummyPollDualTwo, dummyPollAges, dummyPollRegion];
 
 export default PollChartDummyData;

@@ -1,56 +1,29 @@
-import styled, {css} from 'styled-components';
-import tempImg from '../../../assets/image/tempImg.jpg';
-import main_background from '../../../assets/image/main_background.png';
-import blackbar from '../../../assets/image/blackbar.png';
-import blackbar_hover from '../../../assets/image/blackbar_hover.png';
-import blackbar_transparent from '../../../assets/image/blackbar_transparent.png';
+import styled from 'styled-components';
 
+// export const StyledPollSidebarMenuMain = styled.div`
+//   height: 100%;
+//   width: 100%;
+//   background-color: ${({ theme }) => theme.colors.warning};
+//   &:hover {
+//     background-color: ${({ theme }) => theme.colors.secondary};
+//   }
 
-export const StyledPollSidebarMenuMain = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.warning};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-  }
+//   font-weight: bold;
+//   font-size: 1.5rem;
+//   padding: 16px 0px 16px 20px;
+// `;
 
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 16px 0px 16px 20px;
-`;
+// export const StyledPollSidebarMenuSub = styled.div`
+//   height: 100%;
+//   width: 100%;
+//   background-color: ${({ theme }) => theme.colors.success};
+//   &:hover {
+//     background-color: ${({ theme }) => theme.colors.primary};
+//   }
 
-export const StyledPollSidebarMenuSub = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.success};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
-  }
-
-  font-size: 1.1rem;
-  padding: 12px 0px 12px 36px;
-`;
-
-export const StyledButton = styled.button`
-  /* 공통 스타일 */
-  display: inline-flex;
-  outline: none;
-  border: none;
-  border-radius: 0px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  height: 2.25rem;
-  font-size: 1rem;
-
-  background: url(${main_background});
-  &:hover {
-    background: url(${tempImg});
-  }
-`;
+//   font-size: 1.1rem;
+//   padding: 12px 0px 12px 36px;
+// `;
 
 export const StyledPollSidebarButtonMenuMain = styled.button`
 

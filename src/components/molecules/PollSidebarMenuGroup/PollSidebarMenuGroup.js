@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {StyledPollSidebarMenuMain, StyledPollSidebarMenuSub, StyledButton, StyledPollSidebarButtonMenuMain, StyledPollSidebarButtonMenuSub, StyledPollButtonLine} from './PollSidebarMenuGroup.style';
+import {StyledPollSidebarButtonMenuMain, StyledPollSidebarButtonMenuSub, StyledPollButtonLine} from './PollSidebarMenuGroup.style';
 
 
 const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, handleSelected, getSelected}) => {
@@ -39,7 +39,8 @@ const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, h
                 }
             }
             selected={menuMainNum === getSelected()[0] ? true : false}>
-            {menuMainName}
+            {menuMainNum !== 1 ? menuMainName
+            : opened? menuMainName+'ㅤ∨' : menuMainName+'ㅤ∧'}
         </StyledPollSidebarButtonMenuMain>
         <StyledPollButtonLine
             selected={menuMainNum === getSelected()[0] ? true : false}
