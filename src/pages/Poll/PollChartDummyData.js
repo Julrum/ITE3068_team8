@@ -155,8 +155,8 @@ const dummyPollAges = [
         lee: 35.5,
         yoon: 33.5,
         sim: 8.5,
-        ahn: 5.0,
-        others: 16.5,
+        ahn: 8.0,
+        others: 14.5,
       },
       {
         name: '50대',
@@ -167,7 +167,7 @@ const dummyPollAges = [
         others: 30.2,
       },
       {
-        name: '60대 이상',
+        name: '60대이상',
         lee: 30.5,
         yoon: 32.9,
         sim: 6.4,
@@ -184,10 +184,10 @@ const dummyPollRegion = [
         colors: [theme.colors.primary, theme.colors.danger, theme.colors.success, theme.colors.warning, theme.colors.boxShawdow]
     },
     {
-        name: '서울/경기/인천',
-        lee: 34.0,
+        name: "서울/경기/인천",
+        lee: 24.0,
         yoon: 33.7,
-        sim: 4.2,
+        sim: 14.2,
         ahn: 4.0,
         others: 24.1,
       },
@@ -201,11 +201,11 @@ const dummyPollRegion = [
       },
       {
         name: '대구/경북',
-        lee: 35.5,
-        yoon: 33.5,
-        sim: 8.5,
-        ahn: 5.0,
-        others: 16.5,
+        lee: 25.5,
+        yoon: 43.5,
+        sim: 6.5,
+        ahn: 11.0,
+        others: 13.5,
       },
       {
         name: '광주/전라',
@@ -225,11 +225,11 @@ const dummyPollRegion = [
       },
       {
         name: '제주',
-        lee: 35.5,
-        yoon: 33.5,
-        sim: 8.5,
-        ahn: 5.0,
-        others: 16.5,
+        lee: 25.5,
+        yoon: 23.5,
+        sim: 28.5,
+        ahn: 15.0,
+        others: 7.5,
       },
 ]
 

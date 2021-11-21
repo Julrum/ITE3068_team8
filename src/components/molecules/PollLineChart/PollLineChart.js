@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
-import theme from "../../../styles/theme";
+import React from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const PollLineChart = ({data}) =>{
 
@@ -31,21 +30,21 @@ const PollLineChart = ({data}) =>{
         }
         console.log(array);
 
-    let Lines = () => {
-        return(
-            array.map((item, index) => 
-            <Line
-            key={index}
-            type="monotone"
-            dataKey={mainInfo.keys[index]}
-            name={mainInfo.names[index]}
-            stroke={mainInfo.colors[index]}
-            strokeWidth={3}>
-
-            </Line>
-            )
-        );
-    }
+        let Lines = () => {
+            return(
+                array.map((item, index) => 
+                <Line
+                key={index}
+                type="monotone"
+                dataKey={mainInfo.keys[index]}
+                name={mainInfo.names[index]}
+                stroke={mainInfo.colors[index]}
+                strokeWidth={5}>
+    
+                </Line>
+                )
+            );
+        }
     
       return (
 
