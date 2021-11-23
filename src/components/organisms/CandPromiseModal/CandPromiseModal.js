@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
+import CandProfile from '../../molecules/CandProfile'
 import close_button_image from '../../../assets/image/close_button.png'
-import { CloseButton, ModalInner, ModalOverlay, ModalWrapper } from './CandProfileModal.style'
+import { CloseButton, ModalInner, ModalOverlay, ModalWrapper } from './CandPromiseModal.style'
 import Portal from '../../../Portal'
-import CandPromise from '../../molecules/CandPromise'
 
 
-const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}) => {
+const CandPromiseModal = ({modalVisible, datas, onClose, closable, maskClosable}) => {
 
     /* mask 클릭시 사라짐 */
     const onMaskClick = (e) => {
@@ -41,8 +41,8 @@ const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}
                 >
                     <ModalInner tabIndex="0">
                         {closable && <CloseButton background={close_button_image} onClick={close} />}
-                        {datas.items.map((item) => (
-                            <CandPromise title={item.title} contents={item.contents} />
+                        {datas.subarea.map((item) => (
+                            <CandProfile title={item.title} contents={item.promise} />
                         ))}
                     </ModalInner>
                 </ModalWrapper>
@@ -51,4 +51,4 @@ const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}
     )
 }
 
-export default CandProfileModal
+export default CandPromiseModal
