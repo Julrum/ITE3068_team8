@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import close_button_image from '../../../assets/image/close_button.png'
 import { CloseButton, ModalInner, ModalOverlay, ModalWrapper } from './CandProfileModal.style'
 import Portal from '../../../Portal'
-import CandPromise from '../../molecules/CandPromise'
+import CandProfile from '../../molecules/CandProfile'
 
 
 const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}) => {
@@ -42,7 +42,7 @@ const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}
                     <ModalInner tabIndex="0">
                         {closable && <CloseButton background={close_button_image} onClick={close} />}
                         {datas.items.map((item) => (
-                            <CandPromise title={item.title} contents={item.contents} />
+                            <CandProfile title={item.title} contents={item.contents} />
                         ))}
                     </ModalInner>
                 </ModalWrapper>
