@@ -1,22 +1,26 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Cand1 from "./Candidate/Cand1";
+import image from '../../assets/image/cand1.jpeg'
+import CandCell from "../../components/organisms/CandCell";
+import { Cand, CandList } from "./Candidates.style";
 
 const Candidates = () => {
 
-    // <BrowserRouter>
-    //     <Route exact path="/candidates">
-    //         <Route path="cand1" element={<Cand1 />} />
-    //     </Route>
-    // </BrowserRouter>
-
-    return <div>
-        Candidates
-        <Link to="/candidates/cand1">기호 1번</Link>
-        <Link to="/candidates/cand2">기호 2번</Link>
-        <Link to="/candidates/cand3">기호 3번</Link>
-        <Link to="/candidates/cand4">기호 4번</Link>
-    </div>;
+    return (
+        <CandList>
+            <Cand>
+                <CandCell url="/candidates/cand1" image={image} name="이재명1" num="1" slogan="나라를 나라답게"></CandCell>
+            </Cand>
+            <Cand>
+                <CandCell url="/candidates/cand2" image={image} name="이재명2" num="2" slogan="나라를 나라답게"></CandCell>
+            </Cand>
+            <Cand>
+                <CandCell url="/candidates/cand3" image={image} name="이재명3" num="3" slogan="나라를 나라답게"></CandCell>
+            </Cand>
+            <Cand>
+                <CandCell url="/candidates/cand4" image={image} name="이재명4" num="4" slogan="나라를 나라답게"></CandCell>
+            </Cand>
+        </CandList>
+    );
 }
 
 export default Candidates;
