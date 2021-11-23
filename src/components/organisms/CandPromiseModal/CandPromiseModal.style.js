@@ -47,7 +47,6 @@ export const CloseButton = styled.button`
     border-style: hidden;
     right: 0;
     margin-right: 6%;
-    
 
     transform: rotate(0);
     -webkit-transform: rotate(0deg);
@@ -56,6 +55,8 @@ export const CloseButton = styled.button`
     -o-transform: rotate(0deg);
 
     transition: all 0.2s;
+
+    cursor: pointer;
 
     &:hover {
         transform: rotate(-90deg);

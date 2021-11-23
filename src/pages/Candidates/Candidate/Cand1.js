@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import CandProfileModal from "../../../components/organisms/CandProfileModal";
 import CandPromiseModal from "../../../components/organisms/CandPromiseModal";
+import PromiseCell from "../../../components/organisms/PromiseCell";
+import PromiseCell2 from "../../../components/organisms/PromiseCell2";
+import { Cell, CellList } from "./Cand.style";
 import profileDatas from './DummyProfile'
 import promiseDatas from './DummyPromise'
 
@@ -31,6 +34,22 @@ const Cand1 = () => {
         {promiseDatas.area.map((area, index) =>  
             (<button onClick={() => openPromiseModal(index)}>{area.title}</button>)
         )}
+
+
+        <CellList>
+            <Cell onClick={() => openPromiseModal(0)}>
+                <PromiseCell area={promiseDatas.area[0].title} data={promiseDatas.area[0].rep_promise}></PromiseCell>
+            </Cell>
+            <Cell>
+                <PromiseCell2 open={() => openPromiseModal(0)} data={promiseDatas.area[0].rep_promise}></PromiseCell2>
+            </Cell>
+            <Cell onClick={() => openPromiseModal(0)}>
+                <PromiseCell area={promiseDatas.area[0].title} data={promiseDatas.area[0].rep_promise}></PromiseCell>
+            </Cell>
+            <Cell>
+                <PromiseCell2 open={() => openPromiseModal(0)} data={promiseDatas.area[0].rep_promise}></PromiseCell2>
+            </Cell>
+        </CellList>
 
         {
             profileModalVisible && <CandProfileModal 

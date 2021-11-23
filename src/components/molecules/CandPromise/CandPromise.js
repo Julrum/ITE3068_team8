@@ -5,9 +5,10 @@ const CandPromise = ({title, contents}) => {
     return (
         <Item>
             <Title>{title}</Title>
-            <Contents>{contents.map((content) => (
+            <Contents>
+                {contents.map((content) => (
                 <Content>{content}</Content>
-            ))}
+                ))}
             </Contents>
         </Item>
     )
