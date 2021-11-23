@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-// const fullWidthStyle = css`
-//   ${props =>
-//     props.fullWidth &&
-//     css`
-//       width: 100%;
-//       justify-content: center;
-//       & + & {
-//         margin-left: 300px;
-//         margin-top: 1rem;
-//       }
-//     `}
-// `;
-
 export const StyledPollChartLayout = styled.div`
   overflow: auto;
   display: flex;
@@ -20,6 +7,7 @@ export const StyledPollChartLayout = styled.div`
   height: calc(100% - 72px);
   width: calc(100% - 300px);
   background-color: ${({ theme }) => theme.colors.white};
+  padding: 0px 0px 30px 0px;
 `;
 
 export const StyledPollChartTitleTemp = styled.div`

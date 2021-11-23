@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer, StyledPollChartDetailedInfo } from "./PollChart.style";
 import PollLineChart from "../../molecules/PollLineChart";
-import PollLineChartSimple from "../../molecules/PollLineChartSimple";
 import PollBarChartVertical from "../../molecules/PollBarChartVertical";
 
 let dummyData;
@@ -11,20 +10,21 @@ const PollChart = (prop) => {
     let {getSelected, chartDummyData} = prop;
     selected = getSelected();
     dummyData = chartDummyData;
-    //console.log('dummyData is: '+dummyData);
 
     let chartType = (num) => {
       if(num === 0){
         return(
           <PollLineChart
-            data={dummyData[selected[0]]}>
+            data={dummyData[selected[0]]}
+            chartType={selected[0]}>
           </PollLineChart>
         );
       }else if(num === 1){
         return(
-          <PollLineChartSimple
-            data={dummyData[1][selected[2]]}>
-          </PollLineChartSimple>
+          <PollLineChart
+            data={dummyData[1][selected[2]]}
+            chartType={selected[0]}>
+          </PollLineChart>
         );
       }else if(num === 2 || num === 3){
         return(

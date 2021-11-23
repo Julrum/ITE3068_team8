@@ -1,16 +1,14 @@
 import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const PollLineChart = ({data}) =>{
+const PollLineChart = ({data, chartType}) =>{
 
   let valueInfo = [...data];
   const mainInfo = data[0];
   valueInfo.shift();
 
-
   let array = [];
   for(let i = 0; i < mainInfo.numOfMembers; i++){
-    //console.log('nm: '+mainInfo.numOfMembers);
     array.push(i);
   }
 
@@ -19,15 +17,33 @@ const PollLineChart = ({data}) =>{
       array.map((item, index) => 
         <Line
           key={index}
-          //type="monotone"
+          //for curved lines, use type="monotone"
           dataKey={mainInfo.keys[index]}
           name={mainInfo.names[index]}
           stroke={mainInfo.colors[index]}
-          strokeWidth={5}>
+          strokeWidth={5}
+          >
     
         </Line>
       )
     );
+  }
+
+  let SimpleLines = () => {
+    return(
+      array.map((item, index) => 
+        <Line
+          key={index}
+          dataKey={mainInfo.keys[index]}
+          name={mainInfo.names[index]}
+          stroke={mainInfo.colors[index]}
+          strokeWidth={6}
+          yAxisId="right"
+          >
+
+          </Line>
+        )
+      );
   }
     
   return (
@@ -45,11 +61,20 @@ const PollLineChart = ({data}) =>{
       >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
+      {chartType === 0 ?
+      <>
       <YAxis />
       <Tooltip />
-      <Legend wrapperStyle={{paddingTop: "15px"}} iconSize={24}/>
+      <Legend wrapperStyle={{ paddingTop: "15px" }} iconSize={24} />
+      </>
+      : <>
+      <YAxis tick={false} />
+      <YAxis yAxisId="right" orientation="right" />
+      <Tooltip />
+      <Legend wrapperStyle={{ paddingTop: "15px" }} iconSize={32} />
+      </>}
 
-      {Lines()}
+      {chartType === 0 ? Lines() : SimpleLines()}
 
       </LineChart>
     </ResponsiveContainer>
