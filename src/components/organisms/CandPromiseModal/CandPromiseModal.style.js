@@ -31,8 +31,8 @@ export const ModalInner = styled.div`
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
     background-color: #fff;
     border-radius: 10px;
-    width: 60%;
-    max-width: 60%;
+    width: 70%;
+    max-width: 70%;
     margin: 10% auto;
     padding: 50px 50px;
 `;
@@ -47,6 +47,7 @@ export const CloseButton = styled.button`
     border-style: hidden;
     right: 0;
     margin-right: 6%;
+    
 
     transform: rotate(0);
     -webkit-transform: rotate(0deg);
