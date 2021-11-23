@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const CandList = styled.body`
-    text-decoration: none;
+export const CandList = styled.div`
+    height: 100%;
+    width: 100%;
 `;
 
 export const Cand = styled.div`
