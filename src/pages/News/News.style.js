@@ -38,3 +38,7 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const Space = styled.div`
+  height: 20px;
+`;
