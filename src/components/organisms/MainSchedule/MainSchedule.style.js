@@ -9,7 +9,6 @@ export const StyledMainSchedule = styled.div`
  flex-direction: column;
  justify-content: start;
  align-items: center;
- background-color: #FEFEFE;
 `;
 
 export const StyledTitle = styled.div`
