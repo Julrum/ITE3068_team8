@@ -1,11 +1,9 @@
 import React from 'react';
-import { StyledPollSidebarContainer, StyledPollSidebarTitle } from './PollSidebar.style';
+import { StyledPollSidebarContainer } from './PollSidebar.style';
 import PollSidebarMenuGroup from '../../molecules/PollSidebarMenuGroup/PollSidebarMenuGroup';
 
 const PollSidebar = (prop) => {
     const {menuMainData, menuSubData, handleSelected, getSelected} = prop;
-    //console.log('menuMainData: '+menuMainData);
-    const pollSidebarTitle="여론조사";
 
     return(
         <StyledPollSidebarContainer>

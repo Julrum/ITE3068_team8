@@ -6,5 +6,4 @@ export const StyledPollSidebarContainer = styled.div`
   width: 227px;
   background-color: ${({ theme }) => theme.colors.background};
   padding: 48px 24px 48px 24px;
-  box-shadow: 0px 3px 5px ${({ theme }) => theme.colors.boxShawdow};
 `;

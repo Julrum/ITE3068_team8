@@ -5,7 +5,7 @@ export const StyledPollChartLayout = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 72px);
-  width: calc(100% - 227px);
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 0px 0px 30px 0px;
 `;

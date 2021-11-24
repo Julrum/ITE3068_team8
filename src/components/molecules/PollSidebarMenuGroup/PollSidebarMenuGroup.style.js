@@ -18,7 +18,7 @@ export const StyledPollSidebarButtonMenuMain = styled.button`
   font-weight: bold;
   font-size: 1.1rem;
   margin-top: 16px;
-  padding: 20px 0px 16px 20px;
+  padding: 20px 0px 16px 12px;
 `;
 
 export const StyledPollSidebarButtonMenuSub = styled.button`
@@ -38,7 +38,7 @@ export const StyledPollSidebarButtonMenuSub = styled.button`
 
   font-size: 0.9rem;
   font-weight: ${props => props.selected ? 'bold' : ''};
-  padding: 12px 0px 16px 36px;
+  padding: 12px 0px 16px 20px;
 `;
 
 export const StyledPollButtonLine = styled.div`

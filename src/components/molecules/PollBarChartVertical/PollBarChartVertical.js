@@ -49,7 +49,7 @@ const PollBarChartVertical = ({data}) => {
             bottom: 5
           }}
           layout="vertical" 
-          barCategoryGap={22}
+          barCategoryGap={16}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" domain={[0, 100.0]} hide padding={{top: 10}}/>
