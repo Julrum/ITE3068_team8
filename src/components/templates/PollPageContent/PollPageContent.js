@@ -16,12 +16,9 @@ const PollPageContent = ({chartDummyData}) => {
     const [menuMainSelected, setMenuMainSelected] = useState(0);
     const [menuSubSelected, setMenuSubSelected] = useState(0);
 
-    //console.log(menuMainSelected+', '+menuSubSelected+', '+dataMain);
-
     const handleSelected = (main, sub) => {
         setMenuMainSelected(main);
         setMenuSubSelected(sub);
-        //console.log(main+'//'+sub);
     }
 
     const getSelected = () => {
@@ -30,7 +27,6 @@ const PollPageContent = ({chartDummyData}) => {
 
     return(
         <StyledPollPageContent>
-            <div>
                 <PollSidebar
                     menuMainData={dataMain}
                     menuSubData={dataTotal}
@@ -38,7 +34,6 @@ const PollPageContent = ({chartDummyData}) => {
                     getSelected={getSelected}
                     >
                 </PollSidebar>
-            </div>
                 <PollChart
                     getSelected={getSelected}
                     chartDummyData={chartDummyData}>
