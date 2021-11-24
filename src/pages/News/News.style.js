@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const PageLayout = styled.div`
   display: flex;
@@ -6,10 +6,27 @@ export const PageLayout = styled.div`
   height: 100%;
 `;
 
+export const SidebarItem = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 24px 10px 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bgDivider};
+  }
+  ${(props) =>
+    props.index === props.selected &&
+    css`
+      background-color: ${({ theme }) => theme.colors.primaryLighten};
+      :hover {
+        background-color: ${({ theme }) => theme.colors.primaryTransparent};
+      }
+    `}
+`;
+
 export const ContentLayout = styled.div`
   width: 100%;
   height: calc(100% - 72px);
-  /* margin: 60px 120px 1200px 120px; */
   background-color: ${({ theme }) => theme.colors.white};
   overflow-y: auto;
   display: flex;
@@ -37,8 +54,4 @@ export const Section = styled.div`
   border: hidden;
   display: flex;
   flex-direction: column;
-`;
-
-export const Space = styled.div`
-  height: 20px;
 `;
