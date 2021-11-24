@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledMainSchedule = styled.div`
  width: 70%;
  height: 360px;
- margin: 10% 15%;
+ margin: 8% 15%;
  text-align: center;
  display: flex;
  flex-direction: column;
