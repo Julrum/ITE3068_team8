@@ -4,10 +4,6 @@ export const Layout = styled.div`
   display: flex;
   width: 180px;
   height: 60px;
-  cursor: pointer;
-  :hover {
-    background-color: ${({ theme }) => theme.colors.bgDivider};
-  }
 `;
 
 export const ProfileLayout = styled.div`
