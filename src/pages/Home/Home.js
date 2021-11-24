@@ -1,12 +1,21 @@
 import React from 'react';
-import { StyledMain } from './Home.style';
-import MainContent from '../../components/templates/MainContent/MainContent';
+import { StyledHome, MainContent, Tail } from './Home.style';
+import DDay from '../../components/organisms/DDay';
+import TodayNews from '../../components/organisms/TodayNews';
+import MainRoute from '../../components/organisms/MainRoute';
+import MainSchedule from '../../components/organisms/MainSchedule';
 
 const Home = () => {
   return (
-    <StyledMain>
-      <MainContent/>
-    </StyledMain>
+    <StyledHome>
+      <MainContent>
+        <DDay/>
+        <TodayNews/>
+        <MainRoute/>
+        <MainSchedule/>
+        <Tail/>
+      </MainContent>
+    </StyledHome>
   );
 };
 
