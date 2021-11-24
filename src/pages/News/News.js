@@ -7,14 +7,23 @@ import {
   Header,
   Label,
   Section,
+  Space,
 } from './News.style';
-import datas from './dummydata';
+import { datas, sidebarData } from './dummydata';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
+import ProfileWithLabel from '../../components/molecules/ProfileWithLabel/ProfileWithLabel';
 
 const News = () => {
   return (
     <PageLayout>
-      <Sidebar>sidebar</Sidebar>
+      <Sidebar>
+        {sidebarData.map((item) => (
+          <>
+            <ProfileWithLabel name={item.name} url={item.url} />
+            <Space />
+          </>
+        ))}
+      </Sidebar>
       <ContentLayout>
         <Content>
           <Header>
