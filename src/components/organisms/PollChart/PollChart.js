@@ -76,11 +76,12 @@ const PollChart = (prop) => {
                   : selected[1]
                 }
             </StyledPollChartTitleTemp>
-            <StyledPollChartContainer>
 
+              <StyledPollChartContainer>
               {chartType(selected[0])}
-                
-            </StyledPollChartContainer>
+              </StyledPollChartContainer>
+
+            
             {detailedInfo()}
         </StyledPollChartLayout>
     );

@@ -1,30 +1,5 @@
 import styled from 'styled-components';
 
-// export const StyledPollSidebarMenuMain = styled.div`
-//   height: 100%;
-//   width: 100%;
-//   background-color: ${({ theme }) => theme.colors.warning};
-//   &:hover {
-//     background-color: ${({ theme }) => theme.colors.secondary};
-//   }
-
-//   font-weight: bold;
-//   font-size: 1.5rem;
-//   padding: 16px 0px 16px 20px;
-// `;
-
-// export const StyledPollSidebarMenuSub = styled.div`
-//   height: 100%;
-//   width: 100%;
-//   background-color: ${({ theme }) => theme.colors.success};
-//   &:hover {
-//     background-color: ${({ theme }) => theme.colors.primary};
-//   }
-
-//   font-size: 1.1rem;
-//   padding: 12px 0px 12px 36px;
-// `;
-
 export const StyledPollSidebarButtonMenuMain = styled.button`
 
   height: 100%;
@@ -41,7 +16,7 @@ export const StyledPollSidebarButtonMenuMain = styled.button`
   }
 
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-top: 16px;
   padding: 20px 0px 16px 20px;
 `;
@@ -61,7 +36,7 @@ export const StyledPollSidebarButtonMenuSub = styled.button`
     background-color: ${({ theme }) => theme.colors.pollButtonHover};
   }
 
-  font-size: 1.0rem;
+  font-size: 0.9rem;
   font-weight: ${props => props.selected ? 'bold' : ''};
   padding: 12px 0px 16px 36px;
 `;
@@ -69,5 +44,5 @@ export const StyledPollSidebarButtonMenuSub = styled.button`
 export const StyledPollButtonLine = styled.div`
   height: 2px;
   width: 100%;
-  background-color: ${props => props.selected ? ({ theme }) => theme.colors.primary : ({ theme }) => theme.colors.primaryLighten};
+  background-color: ${props => props.selected ? ({ theme }) => theme.colors.primary : ({ theme }) => theme.colors.pollButtonLineLight};
 `;

@@ -9,9 +9,6 @@ const PollSidebar = (prop) => {
 
     return(
         <StyledPollSidebarContainer>
-            <StyledPollSidebarTitle>
-                {pollSidebarTitle}
-            </StyledPollSidebarTitle>
             {menuMainData.map((item, index) => {
                 return(
                     <div
