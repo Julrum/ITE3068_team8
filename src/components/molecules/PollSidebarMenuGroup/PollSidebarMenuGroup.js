@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {StyledPollSidebarButtonMenuMain, StyledPollSidebarButtonMenuSub, StyledPollButtonLine} from './PollSidebarMenuGroup.style';
-
+import {StyledPollSidebarButtonMenuSub} from './PollSidebarMenuGroup.style';
+import PollSidebarButton from "../../atoms/PollSidebarButton/PollSidebarButton";
 
 const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, handleSelected, getSelected}) => {
  
@@ -24,23 +24,18 @@ const PollSidebarMenuGroup = ({isOpen, menuMainName, menuMainNum, menuSubList, h
     }
 
     return (<div>
-        <StyledPollSidebarButtonMenuMain
-            onClick={
-                (e) => {
-                    menuMainNum === 1 ? 
-                    setOpened(!opened)
-                    : handleSelected(menuMainNum, 0);
-                }
-            }
-            selected={menuMainNum === getSelected()[0] ? true : false}>
-            {menuMainNum !== 1 ? menuMainName
-            : opened? menuMainName+'ㅤ∨' : menuMainName+'ㅤ∧'}
-        </StyledPollSidebarButtonMenuMain>
-        <StyledPollButtonLine
-            selected={menuMainNum === getSelected()[0] ? true : false}
+        <PollSidebarButton
+            isOpen={isOpen}
+            menuMainName={menuMainName}
+            menuMainNum={menuMainNum}
+            menuSubList={menuSubList}
+            handleSelected={handleSelected}
+            getSelected={getSelected}
+            opened={opened}
+            setOpened={setOpened}
             >
+        </PollSidebarButton>
 
-            </StyledPollButtonLine>
         {opened ? subMenus() : ''}
         
         </div>);

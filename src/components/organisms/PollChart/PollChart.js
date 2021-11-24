@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer, StyledPollChartDetailedInfo } from "./PollChart.style";
+import { StyledPollChartLayout, StyledPollChartTitleTemp, StyledPollChartContainer, StyledPollChartDetailedInfo, StyledPollChartDetailedInfoContainer } from "./PollChart.style";
 import PollLineChart from "../../molecules/PollLineChart";
 import PollBarChartVertical from "../../molecules/PollBarChartVertical";
 
@@ -49,10 +49,9 @@ const PollChart = (prop) => {
         const tmpdata = dummyData[selected[0]][0];
         orgs = tmpdata.org;
         terms = tmpdata.term;
-        //console.log('tmpdata: '+tmpdata.org+orgs+terms);
       }
 
-      return(<div>
+      return(<StyledPollChartDetailedInfoContainer>
               <StyledPollChartDetailedInfo>
                 {"단위: %"}
               </StyledPollChartDetailedInfo>
@@ -62,8 +61,7 @@ const PollChart = (prop) => {
               <StyledPollChartDetailedInfo>
                 {"조사 기간: "+terms}
               </StyledPollChartDetailedInfo>
-            </div>
-            
+              </StyledPollChartDetailedInfoContainer>
       );
     }
 
@@ -81,7 +79,6 @@ const PollChart = (prop) => {
               {chartType(selected[0])}
               </StyledPollChartContainer>
 
-            
             {detailedInfo()}
         </StyledPollChartLayout>
     );

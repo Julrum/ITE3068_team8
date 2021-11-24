@@ -22,11 +22,18 @@ export const StyledPollChartContainer = styled.div`
   justify-content: center;
   height: 70%;
   width: 100%;
+  min-height: 360px;
+  min-width: 360px;
   padding: 10px 12.5% 10px 10%;
 `;
 
 export const StyledPollChartDetailedInfo = styled.div`
-  padding: 5px 0px 5px 90px;
+  padding: 5px 0px 5px 0px;
   font-size: 1em;
   color: ${({ theme }) => theme.colors.placeholder};
+`;
+
+export const StyledPollChartDetailedInfoContainer = styled.div`
+  width: 100%;
+  padding: 10px 0px 20px 90px;
 `;
