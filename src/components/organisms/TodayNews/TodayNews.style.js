@@ -31,5 +31,5 @@ export const Content = styled.div`
     width: 25%;
     height: 100%;
     padding: 0px;
-    margin: 0 1.5vw;
+    margin: 0 1.5%;
 `
