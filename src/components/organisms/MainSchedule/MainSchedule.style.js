@@ -9,24 +9,29 @@ export const StyledMainSchedule = styled.div`
  flex-direction: column;
  justify-content: start;
  align-items: center;
+ 
+transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
 `;
 
 export const StyledTitle = styled.div`
- position:relative;
- left: 2%;
  width: 100%;
- height: 15%;
+ height: 50px;
  display: flex;
  flex-direction: column;
- justify-content: end;
+ justify-content: center;
  align-items: start;
  font-size: 2em;
  font-weight: 900;
+ padding-left: 1.5%;
 `;
 
 export const StyledOl = styled.ol` 
  width: 100%;
- height: 85%;
+ height: 250px;
  display: flex;
  flex-direction: row;
  justify-content: center;

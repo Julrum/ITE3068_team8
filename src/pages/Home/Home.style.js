@@ -11,6 +11,12 @@ background-size: 100% 28%;
 background-repeat: no-repeat;
 background-attachment: local;
 overflow: auto;
+
+transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
 `;
 
 export const MainContent = styled.div` 
