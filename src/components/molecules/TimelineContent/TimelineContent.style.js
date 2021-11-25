@@ -6,12 +6,12 @@ export const StyledContent = styled.div`
  transform: translateY(-100%);
  left: calc(50% * ${props => props.item.correction} + 6px);
  width: calc(100% * ${props => props.item.correction});
- height: 14vh;
+ height: 120px;
  color: black;
  background: ${props => props.item.background};
- font-family: "SeoulNamsan";
  font-weight: bold;
  white-space: pre-line;
+ padding: 0 3%;
  &:before {
 	 content: '';
 	 position: absolute;
@@ -32,17 +32,16 @@ export const StyledDate = styled.div`
     position:relative;
     top: 12%;
     height: 36%;
-    font-size: 1.5vh;
+    font-size: 90%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 `
 export const StyledText = styled.div` 
+    width: 100%;
     height: 64%;
-    font-size: 2.1vh;
+    font-size: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 `

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMainSchedule = styled.div`
  width: 70%;
- height: 360px;
+ height: 300px;
  margin: 8% 15%;
  text-align: center;
  display: flex;
@@ -32,7 +32,7 @@ export const StyledOl = styled.ol`
  justify-content: center;
  align-items: end;
  padding: 2% 2%;
- margin 0 0;
+ margin: 0 0;
 `
 export const StyledLi = styled.li` 
  position: relative;
