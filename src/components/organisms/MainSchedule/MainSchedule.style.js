@@ -8,13 +8,6 @@ export const StyledMainSchedule = styled.div`
  display: flex;
  flex-direction: column;
  justify-content: start;
- align-items: center;
- 
-transform: scale(1);
--webkit-transform: scale(1);
--moz-transform: scale(1);
--ms-transform: scale(1);
--o-transform: scale(1);
 `;
 
 export const StyledTitle = styled.div`
@@ -31,7 +24,7 @@ export const StyledTitle = styled.div`
 
 export const StyledOl = styled.ol` 
  width: 100%;
- height: 250px;
+ height: 0px;
  display: flex;
  flex-direction: row;
  justify-content: center;
@@ -42,6 +35,7 @@ export const StyledOl = styled.ol`
 export const StyledLi = styled.li` 
  position: relative;
  display: flex;
+ transform: translateY(180px);
  list-style-type: none;
  width: calc(96% / ${props => props.numdata});
  height: 3px;
