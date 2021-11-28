@@ -1,23 +1,29 @@
+import candidate1 from '../../assets/image/candidate1.jpeg';
+import candidate2 from '../../assets/image/candidate2.jpeg';
+import candidate3 from '../../assets/image/candidate3.jpeg';
+import candidate4 from '../../assets/image/candidate4.jpeg';
+import electionCommission from '../../assets/image/election commission.svg';
+
 const sidebarData = [
   {
     name: '이재명',
-    url: 'https://w.namu.la/s/e2efab32137d3dc841b48e2850d53b77dc17e1435b4e2f285aaf14e0c3ce266e9a81567ff32c43a662fb9a61d458d0ddb5b197b086e77217c1596b7123e34aa1d8a9d33c9ebd548d454d90c288687b2dde1a0a12d0c14254db466c65ab30181b68fa443fa08171c9c1c7dcf057db2532',
+    url: candidate1,
   },
   {
     name: '윤석열',
-    url: 'https://w.namu.la/s/e0ce021d1e8ed536cfa355cf9026880cd642e90569d74d41afcbdd92fb866fa46642cdf08c108d06d4b596587f44fc2b6c5269fc14608ee653bd864fada0b24017e6fb977330d9d992a35d0bcaf0d5b0ad8784051a03972fb5a9ee2a205c5c02ac589ca3433f953c5c2b67cdad39c4da',
+    url: candidate2,
   },
   {
     name: '심상정',
-    url: 'https://w.namu.la/s/620011fe75d1a328a0088131ad08c652cffcd21c3165f41eb0b6706a63fcb0746cc40c8a76a25b9617cdcef78e19b7ec92718a6731eacacbb17262ad89ebcb381e3ee371859b1b85763ba12a92054c8c56fd0f85347079fabf685e2158ce5f3eacc4762ae9d58b6ac21dd0966904c9f0',
+    url: candidate3,
   },
   {
     name: '안철수',
-    url: 'https://w.namu.la/s/4486dd0d88172c626aa8afe2bcdb2323188ed2cf23996c7999631973bd6fc37a5638afe66bd5facff19290368f576a3ea423bcb57e9712adb06a89ac7626425c89bfe01cff88d98e3268cb550370227c8dc4c73dd2480d269101e8f86838e8bb',
+    url: candidate4,
   },
   {
     name: '선관위',
-    url: 'https://w.namu.la/s/698541c5642e9e5970836ffb195bff0cad90630da684706653f5c3e9cb82292957a7f40e495d0d25ff7aff2c74c9b75415144b23bc837f1501994357e4019f36d11e8f97f1ba07bfe68a08dcf2fdc376d206b65422b4de70db96b8a5c47c3338',
+    url: electionCommission,
   },
   {
     name: '기타',
