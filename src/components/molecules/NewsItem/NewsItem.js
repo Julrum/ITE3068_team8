@@ -38,7 +38,7 @@ const NewsItem = ({ url, large, ...rest }) => {
   const handleClick = (link) => () => {
     window.open(link);
   };
-  console.log(loading);
+
   return (
     <>
       {loading && large && (
