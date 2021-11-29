@@ -5,8 +5,8 @@ export const Area = styled.h3`
     position: relative;
 
     margin: auto 10%;
-    margin-top: 5%;
-    margin-bottom: -2%;
+    margin-top: 7%;
+    margin-bottom: 1%;
 
     opacity: 1;
 `;
@@ -63,10 +63,14 @@ export const PlusImage = styled.div`
 `;
 
 export const Cell = styled.div`
+    border-radius: 15px;
+    background-color: #dddddd;
+
     position: absolute;
     width: 25em;
     height: 15em;
     min-width: 20em;
+    
 
     display: flex;
     flex-direction: column;
