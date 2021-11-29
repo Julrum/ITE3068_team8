@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
 export const Area = styled.h1`
-    max-lines: 1;
-    max-width: 90%;
+    max-width: 20em;
+    width: fit-content;
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-right: 5%;
-    margin-bottom: 5%;
+    margin: 5%;
 
+    text-align: right;
     font-size: 400%;
+    word-break: keep-all;
 
     opacity: 0.3;
     transition: all 0.2s;
@@ -34,7 +35,7 @@ export const ArrowImage = styled.div`
     background-position: center;
     background-size: cover;
 
-    top: 50%;
+    top: 44%;
     left: 40%;
     opacity: 0;
 
@@ -62,14 +63,14 @@ export const Cell = styled.div`
         }
         ${Area}{
             opacity: 0.8;
-            transform: translate(-150%,-100%) scale(2);
-            -o-transform: translate(-150%,-100%) scale(2);
-            -ms-transform: translate(-150%,-100%) scale(2);
-            -moz-transform: translate(-150%,-100%) scale(2);
-            -webkit-transform: translate(-130%,-90%) scale(2);
+            transform: translate(-1.3em,-1em) ;
+            -o-transform: translate(-1.3em,-1em) ;
+            -ms-transform: translate(-1.3em,-1em) ;
+            -moz-transform: translate(-1.3em,-1em) ;
+            -webkit-transform: translate(-1.3em,-1em) ;
         }
         ${ArrowImage}{
-            opacity: 0.8;
+            opacity: 0.7;
             left: 55%;
             transform: translate(50%,-30%);
             -o-transform: translate(50%,-30%);
