@@ -41,7 +41,7 @@ const CandProfileModal = ({modalVisible, datas, onClose, closable, maskClosable}
                 >
                     <ModalInner tabIndex="0">
                         {closable && <CloseButton background={close_button_image} onClick={close} />}
-                        {datas.items.map((item) => (
+                        {datas.profile.map((item) => (
                             <CandProfile title={item.title} contents={item.contents} />
                         ))}
                     </ModalInner>

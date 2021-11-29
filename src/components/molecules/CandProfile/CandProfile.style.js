@@ -4,8 +4,10 @@ export const Title = styled.h3`
     text-align: left;
     color: black;
     /* float: left; */
-    min-width: 10em;
+    width: 8em;
+    min-width: 8em;
     word-break: keep-all;
+    margin-left: 3%;
 `;
 
 export const Content = styled.h3`
