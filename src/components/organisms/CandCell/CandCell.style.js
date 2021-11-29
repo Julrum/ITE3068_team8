@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
 export const Introduction = styled.div`
-    position: fixed;
+    position: absolute;
+    max-width: 20%;
     opacity: 1;
     z-index: 1;
     transition: all 0.3s;
     text-decoration: none;
-    bottom: 0;
-    margin-left: 1.5%;
-    margin-bottom: 1.5%;
+    top: 62%;
+    margin: 1.5% 2.5%;
+
+    word-break: keep-all;
 `;
 
 export const Background = styled.div`
-    width: 100%;
+    width: 140%;
     height: 100%;
 
     position: relative;
@@ -20,6 +22,7 @@ export const Background = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: brightness(50%);
     
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -31,13 +34,13 @@ export const Background = styled.div`
 
     &::before {
         content: "";
-        opacity: 0.5;
+        opacity: 0.3;
         position: absolute;
         top: 0px;
         left: 0px;
         right: 0px;
         bottom: 0px;
-        background-color: #000;
+        background-color: ${props => props.color};
     }
 
 `;
@@ -46,6 +49,7 @@ export const Cell = styled.div`
     overflow: hidden;
     width: 100%;
     height: 100%;
+    /* display: flex; */
 
     &:hover {
         ${Background}{
@@ -58,6 +62,7 @@ export const Cell = styled.div`
             -moz-transform: scale(1.1);
             -ms-transform: scale(1.1);
             -o-transform: scale(1.1);
+            filter: brightness(0.8);
         }
 
         ${Introduction}{
