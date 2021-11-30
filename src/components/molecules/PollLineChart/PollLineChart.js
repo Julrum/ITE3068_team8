@@ -60,18 +60,18 @@ const PollLineChart = ({data, chartType}) =>{
           }}
       >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="name" dy={15}/>
       {chartType === 0 ?
       <>
-      <YAxis />
+      <YAxis dx={-4}/>
       <Tooltip />
-      <Legend wrapperStyle={{ paddingTop: "15px" }} iconSize={24} />
+      <Legend wrapperStyle={{ paddingTop: "25px" }} iconSize={24} />
       </>
       : <>
       <YAxis tick={false} />
       <YAxis yAxisId="right" orientation="right" />
       <Tooltip />
-      <Legend wrapperStyle={{ paddingTop: "15px" }} iconSize={32} />
+      <Legend wrapperStyle={{ paddingTop: "25px" }} iconSize={32} />
       </>}
 
       {chartType === 0 ? Lines() : SimpleLines()}
