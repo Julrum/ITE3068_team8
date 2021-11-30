@@ -1,5 +1,4 @@
 import React from "react";
-import image from '../../assets/image/cand1.jpeg'
 import CandCell from "../../components/organisms/CandCell";
 import profileDatas from '../../assets/dummy_data/DummyProfile';
 import { Cand, CandList } from "./Candidates.style";
