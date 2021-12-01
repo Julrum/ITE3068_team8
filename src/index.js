@@ -10,8 +10,8 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <FontStyles />
     <GlobalStyle />
+    <FontStyles />
     <Pages />
   </ThemeProvider>,
   document.getElementById('root'),
