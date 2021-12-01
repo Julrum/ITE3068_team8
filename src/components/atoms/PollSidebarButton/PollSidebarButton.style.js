@@ -38,7 +38,7 @@ export const StyledPollSidebarMainButtonArrowImage = styled.img`
   width: 14px;
   object-fit: cover;
   justify-content: right;
-  transform: ${props => (props.isOpen ? `` : `rotate(180deg)`)};
+  transform: ${props => (props.isOpen ? `rotate(180deg)` : ``)};
 `;
 
 export const StyledPollButtonLine = styled.div`
