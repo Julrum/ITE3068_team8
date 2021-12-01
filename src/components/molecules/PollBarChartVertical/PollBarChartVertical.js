@@ -49,14 +49,14 @@ const PollBarChartVertical = ({data}) => {
             bottom: 5
           }}
           layout="vertical" 
-          barCategoryGap={16}
+          barCategoryGap={14}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" domain={[0, 100.0]} hide padding={{top: 10}}/>
-          <YAxis type="category" width={60} padding={{ top: 1, right: 50}} dataKey="name" yAxisId="left"/>
+          <YAxis type="category" width={60} padding={{ top: 1, right: 50}} dataKey="name" yAxisId="left" dx={-4}/>
           <YAxis yAxisId="right" orientation="right" tick={false}/>
           <Tooltip />
-          <Legend wrapperStyle={{paddingTop: "15px"}} iconSize={24}/>
+          <Legend wrapperStyle={{paddingTop: "24px"}} iconSize={24}/>
           {Bars()}
         </BarChart>
         </ResponsiveContainer>
