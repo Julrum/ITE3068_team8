@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
  		background: ${({ theme }) => theme.colors.background};
  		color: ${({ theme }) => theme.colors.main};
  		font-size: ${({ theme }) => theme.fontSizes.body};
-		font-family: SeoulNamsan, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+		font-family: SeoulNamsan, 서울남산, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  		-webkit-font-smoothing: antialiased;
-   	-moz-osx-font-smoothing: grayscale;
+   		-moz-osx-font-smoothing: grayscale;
  	}
  	#root {
  		height: 100%;
