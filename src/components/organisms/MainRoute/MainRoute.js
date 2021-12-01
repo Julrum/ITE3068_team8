@@ -5,7 +5,7 @@ import ArrowRoute from '../../molecules/ArrowRoute';
 const MainRoute = () => {
   return (
     <StyledMainRoute>
-      <ArrowRoute to="/info" text="선거정보"/>
+      <ArrowRoute to="/information" text="선거정보"/>
       <ArrowRoute to="/candidates" text="후보정보"/>
     </StyledMainRoute>
   );
