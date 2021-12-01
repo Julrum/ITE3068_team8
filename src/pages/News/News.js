@@ -32,7 +32,7 @@ const News = () => {
   };
 
   useEffect(() => {
-    fetchUrl('대선', 1);
+    fetchUrl('대선', 5);
   }, []);
 
   const handleClick = (keyword, index, selected) => {
@@ -65,14 +65,14 @@ const News = () => {
             <Section>
               <Label>후보 뉴스</Label>
               <NewsItem
-                url="https://www.kpanews.co.kr/article/show.asp?idx=227326&category=D"
+                url="https://news.mt.co.kr/mtview.php?no=2021120118490012787"
                 large
               />
             </Section>
             <Section>
               <Label>선거 뉴스</Label>
-              <NewsItem url="https://www.kpanews.co.kr/article/show.asp?idx=227326&category=D" />
-              <NewsItem url="https://www.kpanews.co.kr/article/show.asp?idx=227326&category=D" />
+              <NewsItem url="https://www.seoul.co.kr/news/newsView.php?id=20211201500223&wlog_tag3=naver" />
+              <NewsItem url="http://www.busan.com/view/busan/view.php?code=2021120119293257464" />
             </Section>
           </Header>
           {urlsError && <div>뉴스를 불러오지 못했습니다.</div>}

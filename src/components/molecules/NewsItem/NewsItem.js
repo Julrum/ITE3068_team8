@@ -74,12 +74,20 @@ const NewsItem = ({ url, large, ...rest }) => {
       {error && <div>내용을 불러오지 못했습니다.</div>}
       {metadata && (
         <StyledNewsItem large={large} onClick={handleClick(url)}>
-          <StyledImg src={metadata.image.url} large={large} alt="News Image" />
+          {metadata.image.url && (
+            <StyledImg
+              src={metadata.image.url}
+              large={large}
+              alt="News Image"
+            />
+          )}
           <StyledTextArea large={large}>
-            <StyledTitle>{metadata.title || <Skeleton />}</StyledTitle>
+            <StyledTitle>{metadata.title}</StyledTitle>
             <StyledDescription>{metadata.description}</StyledDescription>
             <StyledPublisher>
-              <StyledPublisherIcon src={metadata.logo.url} alt="" />
+              {metadata.logo.url && (
+                <StyledPublisherIcon src={metadata.logo.url} alt="" />
+              )}
               <StyledPublisherUrl>{metadata.publisher}</StyledPublisherUrl>
             </StyledPublisher>
           </StyledTextArea>
