@@ -30,6 +30,7 @@ const theme = {
     pollButtonHover: 'rgba(77, 77, 255, 0.15)',
     pollButtonBasic: 'rgba(255, 255, 255, 0.25)',
     pollButtonLineLight: '#d1c4e9',
+    pollDarkBlue: '#191970'
   },
 };
 

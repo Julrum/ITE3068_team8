@@ -22,8 +22,8 @@ export const StyledPollChartContainer = styled.div`
   justify-content: center;
   height: 70%;
   width: 100%;
-  min-height: 360px;
-  min-width: 360px;
+  min-height: 500px;
+  min-width: 500px;
   padding: 10px 12.5% 10px 10%;
 `;
 
