@@ -11,11 +11,14 @@ export const StyledTextBox = styled.div`
 `;
 
 export const StyledTiny = styled.div`
- font-size: 1.5em;
+ font-size: calc(0.7em + 1.1vw);
  margin: 0;
+ margin-top: 3%;
+ font-weight: bolder;
 `;
 
 export const StyledDDay = styled.div`
- font-size: 3.5em;
+ font-size: calc(3em + 5vw);
  margin: 0;
+ font-weight: 700;
 `;
