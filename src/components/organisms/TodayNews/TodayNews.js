@@ -20,9 +20,7 @@ const TodayNews = () => {
         </Content>
         <Content>
           <NewsItem
-            url={
-              'https://www.seoul.co.kr/news/newsView.php?id=20211201500223&wlog_tag3=naver'
-            }
+            url={'https://www.sedaily.com/NewsView/22V5FKAI0Z'}
             large
             style={{ height: '100%' }}
           />
