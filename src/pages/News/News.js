@@ -71,7 +71,7 @@ const News = () => {
             </Section>
             <Section>
               <Label>선거 뉴스</Label>
-              <NewsItem url="https://www.seoul.co.kr/news/newsView.php?id=20211201500223&wlog_tag3=naver" />
+              <NewsItem url="https://www.sedaily.com/NewsView/22V5FKAI0Z" />
               <NewsItem url="http://www.busan.com/view/busan/view.php?code=2021120119293257464" />
             </Section>
           </Header>
