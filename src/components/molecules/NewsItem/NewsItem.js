@@ -35,6 +35,10 @@ const NewsItem = ({ url, large, ...rest }) => {
     fetchOG(url);
   }, [url]);
 
+  useEffect(() => {
+    return () => setLoading(false);
+  }, []);
+
   const handleClick = (link) => () => {
     window.open(link);
   };
