@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { TextField } from '@mui/material';
 
 export const StyledHeaderbar = styled.div`
   position: fixed;
@@ -72,4 +73,26 @@ export const StyledBadgeArea = styled.div`
   justify-content: center;
   flex-direction: column;
   padding-right: 30px;
+`;
+
+export const ModalBody = styled.div``;
+
+export const StyledTextField = styled(TextField)`
+  & + & {
+    margin-top: 1rem;
+  }
+`;
+
+export const Aligner = styled.div`
+  margin-top: 1rem;
+  text-align: right;
+`;
+
+export const RightAlignedButton = styled.div`
+  color: ${({ theme }) => theme.colors.sub};
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: ${({ theme }) => theme.colors.main};
+  }
 `;
