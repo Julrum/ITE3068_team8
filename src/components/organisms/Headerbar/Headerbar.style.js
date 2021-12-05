@@ -11,6 +11,8 @@ export const StyledHeaderbar = styled.div`
   display: flex;
   box-shadow: 0px 3px 5px ${({ theme }) => theme.colors.boxShawdow};
   z-index: 20;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledTitle = styled(Link)`
@@ -51,4 +53,23 @@ export const StyledButtonArea = styled.div`
   a:nth-child(even) {
     margin: 0px 10px 0px 10px;
   }
+`;
+
+export const ProfileBadge = styled.div`
+  height: 32px;
+  width: 32px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primaryLighten};
+  cursor: pointer;
+`;
+
+export const StyledBadgeArea = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 30px;
 `;
