@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import mql from '@microlink/mql';
 import Skeleton from '@mui/material/Skeleton';
+import Like from '../../atoms/Like';
 
 import {
   StyledDescription,
@@ -12,6 +13,7 @@ import {
   StyledTextArea,
   StyledTitle,
   StyledSkeleton,
+  StyledContentArea,
 } from './NewsItem.style';
 
 const NewsItem = ({ url, large, ...rest }) => {
@@ -34,10 +36,6 @@ const NewsItem = ({ url, large, ...rest }) => {
   useEffect(() => {
     fetchOG(url);
   }, [url]);
-
-  useEffect(() => {
-    return () => setLoading(false);
-  }, []);
 
   const handleClick = (link) => () => {
     window.open(link);
@@ -78,23 +76,26 @@ const NewsItem = ({ url, large, ...rest }) => {
       {error && <div>내용을 불러오지 못했습니다.</div>}
       {metadata && (
         <StyledNewsItem large={large} onClick={handleClick(url)}>
-          {metadata.image?.url && (
+          {metadata.image && metadata.image.url && (
             <StyledImg
               src={metadata.image.url}
               large={large}
               alt="News Image"
             />
           )}
-          <StyledTextArea large={large}>
-            <StyledTitle>{metadata.title}</StyledTitle>
-            <StyledDescription>{metadata.description}</StyledDescription>
-            <StyledPublisher>
-              {metadata.logo?.url && (
+          <StyledContentArea large={large}>
+            <StyledTextArea large={large}>
+              <StyledTitle>{metadata.title}</StyledTitle>
+              <StyledDescription>{metadata.description}</StyledDescription>
+            </StyledTextArea>
+            <StyledPublisher large={large}>
+              <Like url={url}/>
+              {metadata.logo && metadata.logo.url && (
                 <StyledPublisherIcon src={metadata.logo.url} alt="" />
               )}
               <StyledPublisherUrl>{metadata.publisher}</StyledPublisherUrl>
             </StyledPublisher>
-          </StyledTextArea>
+          </StyledContentArea>
         </StyledNewsItem>
       )}
     </>
