@@ -6,7 +6,8 @@ export const StyledSkeleton = styled.div`
 `;
 
 export const StyledNewsItem = styled.div`
-  height: 125px;
+  min-height: 125px;
+  max-height: 285px;
   margin: 10px;
   display: flex;
   cursor: pointer;
@@ -47,6 +48,7 @@ export const StyledDescription = styled.div`
 `;
 
 export const StyledPublisher = styled.div`
+  transform: translateY(calc(100%-24px));
   display: flex;
   justify-content: flex-end;
 `;
@@ -80,16 +82,8 @@ export const StyledContentArea = styled.div`
 
 export const StyledTextArea = styled.div`
   width: 100%;
-  min-width: 160px;
-  max-height: 160px;
   display: flex;
   flex-direction: column;
-  ${(props) =>
-    props.large &&
-    css`
-      margin-top: 10px;
-      margin-left: 0px;
-    `}
   &:hover {
     text-decoration: underline;
   }
