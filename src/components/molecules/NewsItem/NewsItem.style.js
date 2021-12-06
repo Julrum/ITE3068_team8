@@ -6,21 +6,19 @@ export const StyledSkeleton = styled.div`
 `;
 
 export const StyledNewsItem = styled.div`
-  height: 125px;
+  min-height: 125px;
+  max-height: 285px;
   margin: 10px;
   display: flex;
   cursor: pointer;
   ${(props) =>
     props.large &&
     css`
-      height: 180px;
+      max-height: 340px;
       width: 320px;
       min-width: 320px;
       flex-direction: column;
     `}
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 export const StyledImg = styled.img`
@@ -50,8 +48,9 @@ export const StyledDescription = styled.div`
 `;
 
 export const StyledPublisher = styled.div`
+  transform: translateY(calc(100%-24px));
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 `;
 
 export const StyledPublisherIcon = styled.img`
@@ -65,19 +64,29 @@ export const StyledPublisherUrl = styled.div`
   color: ${({ theme }) => theme.colors.sub};
 `;
 
-export const StyledTextArea = styled.div`
+export const StyledContentArea = styled.div` 
   margin-left: 10px;
   width: 100%;
   min-width: 160px;
   max-height: 160px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   ${(props) =>
     props.large &&
     css`
       margin-top: 10px;
       margin-left: 0px;
     `}
+`
+
+export const StyledTextArea = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const StyledMicroLink = styled(MicroLink)`
