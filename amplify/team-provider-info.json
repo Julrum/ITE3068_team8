@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-daesun-dev-184409-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936938365725:role/amplify-daesun-dev-184409-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936938365725:role/amplify-daesun-dev-184409-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-daesun-dev-184409-deployment",
+      "UnauthRoleName": "amplify-daesun-dev-184409-unauthRole",
+      "StackName": "amplify-daesun-dev-184409",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:936938365725:stack/amplify-daesun-dev-184409/12152550-5679-11ec-bc2f-0a60a8eefef8",
+      "AmplifyAppId": "d3ndf8yptxfac6"
+    },
+    "categories": {
+      "auth": {
+        "daesuncfe5d7d3": {}
+      }
+    }
+  }
+}
