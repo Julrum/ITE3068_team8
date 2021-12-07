@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
 import { ThemeProvider as MuiThemeProvider } from '@mui/system';
 import './index.css';
 import Pages from './pages/Pages';
@@ -21,4 +23,6 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
+Amplify.configure(awsconfig);
+Auth.configure(awsconfig);
 reportWebVitals();

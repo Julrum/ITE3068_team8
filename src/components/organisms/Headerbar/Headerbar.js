@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Button, Menu, MenuItem } from '@mui/material';
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
+import { Auth, Hub } from 'aws-amplify';
+import { Button } from '@mui/material';
 import { StylesProvider } from '@mui/styles';
 import Modal from '../../organisms/Modal';
-import { ReactComponent as Profile } from '../../../assets/mdi_profile.svg';
+import { ReactComponent as Bookmark } from '../../../assets/bookmark-heart.svg';
 import {
   StyledHeaderbar,
   StyledTitle,
   StyledButtonArea,
   StyledLink,
-  ProfileBadge,
   StyledBadgeArea,
   Aligner,
   ModalBody,
@@ -17,22 +18,67 @@ import {
 } from './Headerbar.style';
 
 const Headerbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [LoginModalOpen, setLoginModalOpen] = useState(false);
   const [RegisterModalOpen, setRegisterModalOpen] = useState(false);
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
+  const [newId, setNewId] = useState('');
+  const [newPw, setNewPW] = useState('');
+  const [newPw2, setNewPW2] = useState('');
+  const [user, setUser] = useState(null);
 
-  const open = Boolean(anchorEl);
+  useEffect(() => {
+    let updateUser = async (authState) => {
+      try {
+        let currentUser = await Auth.currentAuthenticatedUser();
+        setUser(currentUser);
+      } catch {
+        setUser(null);
+      }
+    };
+    Hub.listen('auth', updateUser);
+    updateUser();
+    return () => Hub.remove('auth', updateUser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const signIn = async () => {
+    try {
+      const currentUser = await Auth.signIn(id, pw);
+
+      setUser(currentUser);
+      closeLoginModal();
+    } catch (error) {
+      console.log('error signing in', error);
+    }
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const signUp = async () => {
+    try {
+      const { user } = await Auth.signUp({
+        username: newId,
+        password: newPw,
+        attributes: {
+          email: newId,
+        },
+      });
+      closeLoginModal();
+      closeRegisterModal();
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut();
+      setUser(null);
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
   };
 
   const openLoginModal = () => {
-    handleClose();
     setLoginModalOpen(true);
   };
 
@@ -59,19 +105,24 @@ const Headerbar = () => {
           <StyledLink to="/poll">여론조사</StyledLink>
         </StyledButtonArea>
         <StyledBadgeArea>
-          <ProfileBadge onClick={handleClick}>
-            <Profile width="16" height="16" fill="white" />
-          </ProfileBadge>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={openLoginModal}>로그인</MenuItem>
-            <MenuItem onClick={handleClose}>읽기 목록</MenuItem>
-            <MenuItem onClick={handleClose}>로그아웃</MenuItem>
-          </Menu>
+          {user && (
+            <Button
+              variant="outlined"
+              startIcon={<Bookmark width="25" height="25" fill="#4D4DFF" />}
+            >
+              읽기목록
+            </Button>
+          )}
+          {user ? (
+            <Button onClick={signOut}>로그아웃</Button>
+          ) : (
+            <>
+              <Button variant="outlined" onClick={openRegisterModal}>
+                회원가입
+              </Button>
+              <Button onClick={openLoginModal}>로그인</Button>
+            </>
+          )}
         </StyledBadgeArea>
       </StyledHeaderbar>
       <Modal
@@ -80,7 +131,7 @@ const Headerbar = () => {
         closeModal={closeLoginModal}
         title="로그인"
         headerComponent={
-          <Button variant="contained" onClick={() => console.log('login')}>
+          <Button variant="contained" onClick={() => signIn()}>
             로그인하기
           </Button>
         }
@@ -92,6 +143,9 @@ const Headerbar = () => {
             fullWidth
             placeholder="이메일을 입력하세요."
             type="email"
+            onChange={(e) => {
+              setId(e.target.value);
+            }}
           />
           <StyledTextField
             label="비밀번호"
@@ -99,6 +153,9 @@ const Headerbar = () => {
             fullWidth
             placeholder="비밀번호를 입력하세요."
             type="password"
+            onChange={(e) => {
+              setPw(e.target.value);
+            }}
           />
           <Aligner onClick={openRegisterModal}>
             <RightAlignedButton>회원가입</RightAlignedButton>
@@ -111,7 +168,7 @@ const Headerbar = () => {
         closeModal={closeRegisterModal}
         title="회원가입"
         headerComponent={
-          <Button variant="contained" onClick={() => console.log('signup')}>
+          <Button variant="contained" onClick={() => signUp()}>
             회원가입하기
           </Button>
         }
@@ -122,6 +179,9 @@ const Headerbar = () => {
             variant="outlined"
             fullWidth
             placeholder="이메일을 입력하세요."
+            onChange={(e) => {
+              setNewId(e.target.value);
+            }}
           />
           <StyledTextField
             label="비밀번호"
@@ -129,6 +189,9 @@ const Headerbar = () => {
             fullWidth
             placeholder="비밀번호를 입력하세요."
             type="password"
+            onChange={(e) => {
+              setNewPW(e.target.value);
+            }}
           />
           <StyledTextField
             label="비밀번호 재확인"
@@ -136,6 +199,9 @@ const Headerbar = () => {
             fullWidth
             placeholder="비밀번호를 다시 한번 입력하세요."
             type="password"
+            onChange={(e) => {
+              setNewPW2(e.target.value);
+            }}
           />
         </ModalBody>
       </Modal>

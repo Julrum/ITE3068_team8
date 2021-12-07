@@ -71,8 +71,7 @@ export const StyledBadgeArea = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  padding-right: 30px;
+  padding: 18px;
 `;
 
 export const ModalBody = styled.div``;
