@@ -30,6 +30,80 @@
     "EmptyResource": {
       "Type": "Custom::EmptyResource",
       "Condition": "AlwaysFalse"
+    },
+    "AddArticleToBookmarkListResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+          "ApiId": {
+              "Ref": "AppSyncApiId"
+          },
+          "DataSourceName": "BookmarksTable",
+          "TypeName": "Mutation",
+          "FieldName": "addArticleToBookmarks",
+          "RequestMappingTemplateS3Location": {
+              "Fn::Sub": [
+                  "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Mutation.addArticleToBookmarks.req.vtl",
+                  {
+                      "S3DeploymentBucket": {
+                          "Ref": "S3DeploymentBucket"
+                      },
+                      "S3DeploymentRootKey": {
+                          "Ref": "S3DeploymentRootKey"
+                      }
+                  }
+              ]
+          },
+          "ResponseMappingTemplateS3Location": {
+              "Fn::Sub": [
+                  "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Mutation.addArticleToBookmarks.res.vtl",
+                  {
+                      "S3DeploymentBucket": {
+                          "Ref": "S3DeploymentBucket"
+                      },
+                      "S3DeploymentRootKey": {
+                          "Ref": "S3DeploymentRootKey"
+                      }
+                  }
+              ]
+          }
+      }
+    },
+    "RemoveArticleFromBookmarkListResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+          "ApiId": {
+              "Ref": "AppSyncApiId"
+          },
+          "DataSourceName": "BookmarksTable",
+          "TypeName": "Mutation",
+          "FieldName": "removeArticleFromBookmarks",
+          "RequestMappingTemplateS3Location": {
+              "Fn::Sub": [
+                  "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Mutation.removeArticleFromBookmarks.req.vtl",
+                  {
+                      "S3DeploymentBucket": {
+                          "Ref": "S3DeploymentBucket"
+                      },
+                      "S3DeploymentRootKey": {
+                          "Ref": "S3DeploymentRootKey"
+                      }
+                  }
+              ]
+          },
+          "ResponseMappingTemplateS3Location": {
+              "Fn::Sub": [
+                  "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Mutation.removeArticleFromBookmarks.res.vtl",
+                  {
+                      "S3DeploymentBucket": {
+                          "Ref": "S3DeploymentBucket"
+                      },
+                      "S3DeploymentRootKey": {
+                          "Ref": "S3DeploymentRootKey"
+                      }
+                  }
+              ]
+          }
+      }
     }
   },
   "Conditions": {

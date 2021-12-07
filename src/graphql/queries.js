@@ -30,3 +30,73 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      email
+      name
+      createdAt
+      bookmarkId
+      bookmark {
+        id
+        bookmarkList
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        email
+        name
+        createdAt
+        bookmarkId
+        bookmark {
+          id
+          bookmarkList
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getBookmarks = /* GraphQL */ `
+  query GetBookmarks($id: ID!) {
+    getBookmarks(id: $id) {
+      id
+      bookmarkList
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listBookmarkss = /* GraphQL */ `
+  query ListBookmarkss(
+    $filter: ModelBookmarksFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBookmarkss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        bookmarkList
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
