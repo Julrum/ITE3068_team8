@@ -3,3 +3,40 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type User @model @key(
+  name: "byUser",
+  fields: ["email"]
+){
+  id: ID!
+  email: String!
+  name: String
+  createdAt: AWSDateTime!
+  bookmarkId: ID!
+  bookmark: Bookmarks @connection(fields: ["bookmarkId"])
+}
+
+type Bookmarks @model{
+  id: ID!
+  bookmarkList: [String!]!
+}
+
+input AddArticleInput{
+  id: ID!
+  article: String!
+}
+
+input RemoveArticleInput {
+  id: ID!
+  articleIndex: Int!
+}
+
+type Mutation {
+  addArticleToBookmarks(input: AddArticleInput): Bookmarks!
+  removeArticleFromBookmarks(input: RemoveArticleInput): Bookmarks!
+}
+
+type Subscription{
+  onBookmarksChanged: Bookmarks
+    @aws_subscribe(mutations: ["removeArticleFromBookmarks", "addArticleToBookmarks"])
+}
