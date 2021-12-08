@@ -9,6 +9,8 @@ import {
   Section,
   SidebarItem,
 } from './News.style';
+import { Auth, API } from 'aws-amplify';
+import { listUsers } from '../../graphql/queries';
 import { sidebarData } from './dummydata';
 import { getUrl } from '../../api';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
@@ -18,6 +20,7 @@ const News = () => {
   const [selected, setSelected] = useState();
   const [urls, setUrls] = useState([]);
   const [urlsError, setUrlsError] = useState(null);
+  const [userInfo, setUserInfo] = useState();
 
   const fetchUrl = async (keywords, display) => {
     setUrls([]);
@@ -32,6 +35,16 @@ const News = () => {
   };
 
   useEffect(() => {
+    async function getUserInfo() {
+      let login = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
+      if(login)  {
+        let user = await API.graphql({query: listUsers, variables: {filter: {email: {eq: login.attributes.email}}}});
+        setUserInfo(user.data.listUsers.items[0]);
+      }
+      return 1;
+    }
+
+    getUserInfo();
     fetchUrl('대선', 5);
   }, []);
 
@@ -67,18 +80,19 @@ const News = () => {
               <NewsItem
                 url="https://news.mt.co.kr/mtview.php?no=2021120118490012787"
                 large
+                userInfo={userInfo}
               />
             </Section>
             <Section>
               <Label>선거 뉴스</Label>
-              <NewsItem url="https://www.sedaily.com/NewsView/22V5FKAI0Z" />
-              <NewsItem url="http://www.busan.com/view/busan/view.php?code=2021120119293257464" />
+              <NewsItem url="https://www.sedaily.com/NewsView/22V5FKAI0Z" userInfo={userInfo} />
+              <NewsItem url="http://www.busan.com/view/busan/view.php?code=2021120119293257464" userInfo={userInfo} />
             </Section>
           </Header>
           {urlsError && <div>뉴스를 불러오지 못했습니다.</div>}
           {urls &&
             urls.map((item, index) => (
-              <NewsItem key={index} url={item.originallink} />
+              <NewsItem key={index} url={item.originallink} userInfo={userInfo} />
             ))}
         </Content>
       </ContentLayout>
