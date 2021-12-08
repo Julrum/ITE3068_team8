@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Auth, Hub } from 'aws-amplify';
+import { Auth, Hub, API } from 'aws-amplify';
 import { Alert, AlertTitle, Button, Snackbar } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { StylesProvider } from '@mui/styles';
 import Modal from '../../organisms/Modal';
 import { ReactComponent as Bookmark } from '../../../assets/bookmark-heart.svg';
+import {createUser, createBookmarks } from '../../../graphql/mutations';
 import {
   StyledHeaderbar,
   StyledTitle,
@@ -65,6 +66,7 @@ const Headerbar = () => {
           state: 'success',
         });
       setUser(currentUser);
+      window.location.replace("/");
       closeLoginModal();
     } catch (error) {
       setAlertState({
@@ -86,12 +88,20 @@ const Headerbar = () => {
           email: newId,
         },
       });
-      user &&
+      if (user) {
         setAlertState({
           message: '회원가입이 완료되었습니다.',
           description: '이메일을 확인해주십시오.',
           state: 'success',
         });
+        
+        let bmk = await API.graphql({query: createBookmarks,
+          variables: {input: {bookmarkList: []}}})
+          .catch(e => console.log(e));
+        await API.graphql({query: createUser,
+          variables: {input: {email: newId, name: newId, bookmarkId: bmk.data.createBookmarks.id}}})
+          .catch(e => console.log(e));
+      }
       closeLoginModal();
       closeRegisterModal();
     } catch (error) {
@@ -113,6 +123,7 @@ const Headerbar = () => {
         state: 'success',
       });
       setUser(null);
+      window.location.replace("/");
     } catch (error) {
       setAlertState({
         message: '로그아웃에 실패하였습니다.',
