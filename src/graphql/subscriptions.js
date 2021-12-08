@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onBookmarksChanged = /* GraphQL */ `
-  subscription OnBookmarksChanged {
-    onBookmarksChanged {
+  subscription OnBookmarksChanged($id: ID!) {
+    onBookmarksChanged(id: $id) {
       id
       bookmarkList
       createdAt

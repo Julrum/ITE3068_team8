@@ -37,6 +37,6 @@ type Mutation {
 }
 
 type Subscription{
-  onBookmarksChanged: Bookmarks
+  onBookmarksChanged(id: ID!): Bookmarks
     @aws_subscribe(mutations: ["removeArticleFromBookmarks", "addArticleToBookmarks"])
 }
