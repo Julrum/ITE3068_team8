@@ -10,7 +10,7 @@ import {
   SidebarItem,
 } from './News.style';
 import { Auth, API } from 'aws-amplify';
-import { listUsers } from '../../graphql/queries';
+import { getUserByEmail } from '../../graphql/queries';
 import { sidebarData } from './dummydata';
 import { getUrl } from '../../api';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
@@ -38,8 +38,8 @@ const News = () => {
     async function getUserInfo() {
       let login = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
       if(login)  {
-        let user = await API.graphql({query: listUsers, variables: {filter: {email: {eq: login.attributes.email}}}});
-        setUserInfo(user.data.listUsers.items[0]);
+        let user = await API.graphql({query: getUserByEmail, variables: {email: login.attributes.email}});
+        setUserInfo(user.data.getUserByEmail.items[0]);
       }
       return 1;
     }
