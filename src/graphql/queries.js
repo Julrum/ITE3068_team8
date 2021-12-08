@@ -100,3 +100,38 @@ export const listBookmarkss = /* GraphQL */ `
     }
   }
 `;
+export const getUserByEmail = /* GraphQL */ `
+  query GetUserByEmail(
+    $email: String
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getUserByEmail(
+      email: $email
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        name
+        createdAt
+        bookmarkId
+        bookmark {
+          id
+          bookmarkList
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

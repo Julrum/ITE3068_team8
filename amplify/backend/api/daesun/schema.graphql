@@ -5,8 +5,9 @@ type Todo @model {
 }
 
 type User @model @key(
-  name: "byUser",
-  fields: ["email"]
+  name: "byEmail",
+  fields: ["email", "id"],
+  queryField: "getUserByEmail"
 ){
   id: ID!
   email: String!
