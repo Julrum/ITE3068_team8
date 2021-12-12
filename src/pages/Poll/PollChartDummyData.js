@@ -49,80 +49,154 @@ const dummyPollDualOne = [
         keys: ["lee", "yoon"],
         names: ["이재명", "윤석열"],
         colors: ["#004EA2", "#E61E2B"],
-        org: "한국리서치",
-        term: "2021년 10월 1일~31일"
+        org: "리얼미터",
+        term: "2021년 11월 29일 ~ 12월 3일"
     },
     {
-        name: '10월 1주차',
-        "lee": 40.0,
-        "yoon": 45.3,
-        "others": 14.7,
+      name: '11월 2주차',
+      lee: 34.2,
+      yoon: 46.2,
     },
     {
-        name: '10월 2주차',
-        "lee": 35.8,
-        "yoon": 33.2,
-        "others": 30.9,
+      name: '11월 4주차',
+      lee: 36.9,
+      yoon: 46.3,
     },
     {
-        name: '10월 3주차',
-        "lee": 43.0,
-        "yoon": 40.4,
-        "others": 16.6,
-    },
-    {
-        name: '10월 4주차',
-        "lee": 34.8,
-        "yoon": 34.5,
-        "others": 30.7,
-    },
-    {
-        name: '10월 5주차',
-        "lee": 37.5,
-        "yoon": 35.4,
-        "others": 27.1,
+      name: '12월 1주차',
+      lee: 37.5,
+      yoon: 44.0,
     },
 ]
 
 const dummyPollDualTwo = [
     {
         numOfMembers: 2,
-        keys: ["lee", "hong"],
-        names: ["이재명", "홍준표"],
-        colors: ["#004EA2", "#E61E2B"],
-        org: "한국리서치",
-        term: "2021년 10월 1일~31일"
+        keys: ["lee", "sim"],
+        names: ["이재명", "심상정"],
+        colors: ["#004EA2", "#FFCC00"],
+        org: "리얼미터",
+        term: "2021년 11월 29일 ~ 12월 3일"
     },
     {
-        name: '10월 1주차',
-        "lee": 33.3,
-        "hong": 34.0,
-        "others": 32.7,
+      name: '11월 2주차',
+      lee: 34.2,
+      sim: 3.7,
     },
     {
-        name: '10월 2주차',
-        "lee": 35.2,
-        "hong": 33.0,
-        "others": 31.9,
+      name: '11월 4주차',
+      lee: 36.9,
+      sim: 3.7,
     },
     {
-        name: '10월 3주차',
-        "lee": 31.2,
-        "hong": 42.3,
-        "others": 26.5,
+      name: '12월 1주차',
+      lee: 37.5,
+      sim: 3.2,
     },
-    {
-        name: '10월 4주차',
-        "lee": 36.7,
-        "hong": 34.8,
-        "others": 28.5,
-    },
-    {
-        name: '10월 5주차',
-        "lee": 35.6,
-        "hong": 41.9,
-        "others": 22.5,
-    },
+]
+
+const dummyPollDualThree = [
+  {
+      numOfMembers: 2,
+      keys: ["lee", "ahn"],
+      names: ["이재명", "안철수"],
+      colors: ["#004EA2", "#EA5504"],
+      org: "리얼미터",
+      term: "2021년 11월 29일 ~ 12월 3일"
+  },
+  {
+    name: '11월 2주차',
+    lee: 34.2,
+    ahn: 4.3,
+  },
+  {
+    name: '11월 4주차',
+    lee: 36.9,
+    ahn: 3.3,
+  },
+  {
+    name: '12월 1주차',
+    lee: 37.5,
+    ahn: 3.8,
+  },
+]
+
+const dummyPollDualFour = [
+  {
+      numOfMembers: 2,
+      keys: ["yoon", "sim"],
+      names: ["윤석열", "심상정"],
+      colors: ["#E61E2B", "#FFCC00"],
+      org: "리얼미터",
+      term: "2021년 11월 29일 ~ 12월 3일"
+  },
+  {
+    name: '11월 2주차',
+    yoon: 46.2,
+    sim: 3.7,
+  },
+  {
+    name: '11월 4주차',
+    yoon: 46.3,
+    sim: 3.7,
+  },
+  {
+    name: '12월 1주차',
+    yoon: 44.0,
+    sim: 3.2,
+  },
+]
+
+const dummyPollDualFive = [
+  {
+      numOfMembers: 2,
+      keys: ["yoon", "ahn"],
+      names: ["윤석열", "안철수"],
+      colors: ["#E61E2B", "#EA5504"],
+      org: "리얼미터",
+      term: "2021년 11월 29일 ~ 12월 3일"
+  },
+  {
+    name: '11월 2주차',
+    yoon: 46.2,
+    ahn: 4.3,
+  },
+  {
+    name: '11월 4주차',
+    yoon: 46.3,
+    ahn: 3.3,
+  },
+  {
+    name: '12월 1주차',
+    yoon: 44.0,
+    ahn: 3.8,
+  },
+]
+
+const dummyPollDualSix = [
+  {
+      numOfMembers: 2,
+      keys: ["sim", "ahn"],
+      names: ["심상정", "안철수"],
+      colors: ["#FFCC00", "#EA5504"],
+      org: "리얼미터",
+      term: "2021년 11월 29일 ~ 12월 3일"
+  },
+  {
+    name: '11월 2주차',
+    sim: 3.7,
+    ahn: 4.3,
+  },
+  {
+    name: '11월 4주차',
+    sim: 3.7,
+    ahn: 3.3,
+  },
+  {
+    name: '12월 1주차',
+    sim: 3.2,
+    ahn: 3.8,
+  },
 ]
 
 const dummyPollAges = [
@@ -259,7 +333,9 @@ const dummyPollRegion = [
       },
 ]
 
-const PollChartDummyData = [dummyPollMulti, [dummyPollDualOne, dummyPollDualTwo], dummyPollRegion, dummyPollAges];
-//const PollChartDummyData = [dummyPollMulti, dummyPollDualTwo, dummyPollAges, dummyPollRegion];
+const PollChartDummyData = [dummyPollMulti, 
+                            [dummyPollDualOne, dummyPollDualTwo, dummyPollDualThree, 
+                            dummyPollDualFour, dummyPollDualFive, dummyPollDualSix], 
+                            dummyPollRegion, dummyPollAges];
 
 export default PollChartDummyData;
