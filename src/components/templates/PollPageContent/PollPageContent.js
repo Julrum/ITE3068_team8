@@ -6,7 +6,8 @@ import PollChart from "../../organisms/PollChart";
 //dummy
 let dataMain = ["다자구도", "양자구도", "지역별 지지도", "연령별 지지도"];
 let data0 = ["Alpha1"];
-let data1 = ["이재명 vs 윤석열", "이재명 vs 홍준표"];
+let data1 = ["이재명 vs 윤석열", "이재명 vs 심상정", "이재명 vs 안철수", 
+            "윤석열 vs 심상정", "윤석열 vs 안철수", "심상정 vs 안철수"];
 let data2 = ["Gamma1"];
 let data3 = ["Delta1"];
 let dataTotal = [data0, data1, data2, data3];
