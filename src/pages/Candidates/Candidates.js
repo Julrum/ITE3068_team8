@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CandCell from '../../components/organisms/CandCell';
 import profileDatas from '../../assets/dummy_data/DummyProfile';
 import { Cand, CandList } from './Candidates.style';
 
 const Candidates = () => {
+  useEffect(() => {
+    document.title = 'Daesun | 후보정보';
+  });
   return (
     <CandList>
       {profileDatas.cand.map((item, index) => (
