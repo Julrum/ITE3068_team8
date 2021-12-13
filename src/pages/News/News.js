@@ -33,12 +33,19 @@ const News = () => {
       setUrls(response.data.items);
     }
   };
-
+  useEffect(() => {
+    document.title = 'Daesun | 뉴스';
+  });
   useEffect(() => {
     async function getUserInfo() {
-      let login = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
-      if(login)  {
-        let user = await API.graphql({query: getUserByEmail, variables: {email: login.attributes.email}});
+      let login = await Auth.currentAuthenticatedUser().catch((e) =>
+        console.log(e),
+      );
+      if (login) {
+        let user = await API.graphql({
+          query: getUserByEmail,
+          variables: { email: login.attributes.email },
+        });
         setUserInfo(user.data.getUserByEmail.items[0]);
       }
       return 1;
@@ -85,14 +92,24 @@ const News = () => {
             </Section>
             <Section>
               <Label>선거 뉴스</Label>
-              <NewsItem url="https://www.sedaily.com/NewsView/22V5FKAI0Z" userInfo={userInfo} />
-              <NewsItem url="http://www.busan.com/view/busan/view.php?code=2021120119293257464" userInfo={userInfo} />
+              <NewsItem
+                url="https://www.sedaily.com/NewsView/22V5FKAI0Z"
+                userInfo={userInfo}
+              />
+              <NewsItem
+                url="http://www.busan.com/view/busan/view.php?code=2021120119293257464"
+                userInfo={userInfo}
+              />
             </Section>
           </Header>
           {urlsError && <div>뉴스를 불러오지 못했습니다.</div>}
           {urls &&
             urls.map((item, index) => (
-              <NewsItem key={index} url={item.originallink} userInfo={userInfo} />
+              <NewsItem
+                key={index}
+                url={item.originallink}
+                userInfo={userInfo}
+              />
             ))}
         </Content>
       </ContentLayout>
