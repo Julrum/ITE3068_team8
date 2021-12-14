@@ -1,17 +1,39 @@
-import React, { useEffect } from 'react';
-import { Layout, News } from './Readinglist.style';
+import React, { useState, useEffect } from 'react';
+import { EmptyBookmarks, Layout, News } from './Readinglist.style';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
 
+import { Auth, API } from 'aws-amplify';
+import { getUserByEmail } from '../../graphql/queries';
+
 const Readinglist = () => {
-  const urls = [
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-    'https://news.mt.co.kr/mtview.php?no=2021120118490012787',
-  ];
+
+  let [ userInfo, setUserInfo ] = useState();
+  let [ bookmarks, setBookmarks ] = useState([]);
+
+  useEffect(() => {
+    async function getUserInfo() {
+      let login = await Auth.currentAuthenticatedUser().catch((e) =>
+        console.log(e),
+      );
+      if (login) {
+        let user = await API.graphql({
+          query: getUserByEmail,
+          variables: { email: login.attributes.email },
+        });
+        setUserInfo(user.data.getUserByEmail.items[0]);
+      }
+      return 1;
+    }
+
+    getUserInfo();
+  }, []);
+
+  useEffect(() => {
+    if(userInfo) {
+      console.log(userInfo.bookmark.bookmarkList[0]);
+      setBookmarks(userInfo.bookmark.bookmarkList);
+    }
+  }, [userInfo])
 
   useEffect(() => {
     document.title = 'Daesun | 읽기목록';
@@ -20,9 +42,9 @@ const Readinglist = () => {
   return (
     <Layout>
       <News>
-        {urls.map((url) => (
-          <NewsItem url={url} />
-        ))}
+        {(bookmarks.length > 0 ) ? bookmarks.map((url) => (
+          <NewsItem url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>
+        )) : <EmptyBookmarks>"북마크한 기사가 없습니다!"</EmptyBookmarks>}
       </News>
     </Layout>
   );

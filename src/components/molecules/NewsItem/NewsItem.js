@@ -16,7 +16,7 @@ import {
   StyledContentArea,
 } from './NewsItem.style';
 
-const NewsItem = ({ url, large, userInfo, ...rest }) => {
+const NewsItem = ({ url, large, userInfo, setUserInfo, ...rest }) => {
   const [metadata, setMetadata] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -89,7 +89,7 @@ const NewsItem = ({ url, large, userInfo, ...rest }) => {
               <StyledDescription>{metadata.description}</StyledDescription>
             </StyledTextArea>
             <StyledPublisher large={large}>
-              <Like url={url} userInfo={userInfo}/>
+              <Like url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>
               {metadata.logo && metadata.logo.url && (
                 <StyledPublisherIcon src={metadata.logo.url} alt="" />
               )}

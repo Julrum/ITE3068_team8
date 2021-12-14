@@ -5,19 +5,21 @@ export const StyledSkeleton = styled.div`
   display: flex;
 `;
 
-export const StyledNewsItem = styled.div`
-  min-height: 125px;
+export const StyledNewsItem = styled.div` 
+  max-height: 340px;
+  width: 320px;
+  min-width: 320px;
   max-height: 285px;
+  flex-direction: column;
   margin: 10px;
   display: flex;
   cursor: pointer;
   ${(props) =>
-    props.large &&
+    !props.large &&
     css`
-      max-height: 340px;
-      width: 320px;
-      min-width: 320px;
-      flex-direction: column;
+      width: 100%;
+      height: 130px;
+      flex-direction: row;
     `}
 `;
 
@@ -35,14 +37,19 @@ export const StyledImg = styled.img`
 export const StyledTitle = styled.div`
   font-weight: bold;
   text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 40px;
 `;
 
 export const StyledDescription = styled.div`
   font-size: 12px;
   min-height: 50px;
+  max-height: 66px;
   min-width: 50px;
-  text-overflow: clip;
+  text-overflow: ellipsis;
   overflow: hidden;
+  overflow-wrap: break-word;
   flex: 1;
   text-align: left;
 `;
@@ -68,7 +75,6 @@ export const StyledContentArea = styled.div`
   margin-left: 10px;
   width: 100%;
   min-width: 160px;
-  max-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

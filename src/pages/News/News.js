@@ -88,6 +88,7 @@ const News = () => {
                 url="https://news.mt.co.kr/mtview.php?no=2021120118490012787"
                 large
                 userInfo={userInfo}
+                setUserInfo={setUserInfo}
               />
             </Section>
             <Section>
@@ -95,10 +96,12 @@ const News = () => {
               <NewsItem
                 url="https://www.sedaily.com/NewsView/22V5FKAI0Z"
                 userInfo={userInfo}
+                setUserInfo={setUserInfo}
               />
               <NewsItem
                 url="http://www.busan.com/view/busan/view.php?code=2021120119293257464"
                 userInfo={userInfo}
+                setUserInfo={setUserInfo}
               />
             </Section>
           </Header>
@@ -109,6 +112,7 @@ const News = () => {
                 key={index}
                 url={item.originallink}
                 userInfo={userInfo}
+                setUserInfo={setUserInfo}
               />
             ))}
         </Content>
