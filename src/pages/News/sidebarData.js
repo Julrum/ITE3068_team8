@@ -25,9 +25,6 @@ const sidebarData = [
     name: '선관위',
     url: electionCommission,
   },
-  {
-    name: '기타',
-    url: '',
-  },
 ];
+
 export { sidebarData };
