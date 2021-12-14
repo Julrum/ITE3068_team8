@@ -6,10 +6,9 @@ import { API } from 'aws-amplify';
 import { addArticleToBookmarks, removeArticleFromBookmarks } from '../../../graphql/mutations';
 import { onBookmarksChanged } from '../../../graphql/subscriptions';
 
-const Like = ({ url, userInfo }) => {
+const Like = ({ url, userInfo, setUserInfo }) => {
 
   let [ flag, setFlag ] = useState();
-  let [ user, setUser ] = useState(userInfo);
 
   let getIdx = (user, url) => {
     let bList = user.bookmark.bookmarkList;
@@ -21,58 +20,54 @@ const Like = ({ url, userInfo }) => {
   }
 
   useEffect(() => {
-    setUser(userInfo);
-  }, [userInfo])
-
-  useEffect(() => {
     let sub;
     async function afterChange() {
-        sub = await API.graphql({query: onBookmarksChanged, variables: {id: user.bookmark.id}})
+        sub = await API.graphql({query: onBookmarksChanged, variables: {id: userInfo.bookmark.id}})
         .subscribe({ next: newItem => { 
-          setUser({...user, bookmark: newItem.value.data.onBookmarksChanged});
+          setUserInfo({...userInfo, bookmark: newItem.value.data.onBookmarksChanged});
           }
         });
     }
-    user && afterChange();
+    userInfo && afterChange();
 
     return () => {
       sub && sub.unsubscribe();
     }
-  }, [user]);
+  }, [userInfo, setUserInfo]);
 
   useEffect(() => {
     async function init_like() {
-        let idx = getIdx(user, url);
+        let idx = getIdx(userInfo, url);
         if (idx < 0) setFlag(false);
         else setFlag(true);
     }
-    url && user && init_like();
+    url && userInfo && init_like();
     
-  }, [url, user]);
+  }, [url, userInfo]);
 
   const likeClick = async (e) => {
     e.stopPropagation();
-    if (!user) {
+    if (!userInfo) {
       return;
     }
     let new_flag = !flag;
     if (new_flag)   // like
     {
-      let idx = getIdx(user, url);
+      let idx = getIdx(userInfo, url);
       if (idx < 0)   // no "url" in bookmarkList
       {
         await API.graphql({query: addArticleToBookmarks,
-            variables: {input: { id: user.bookmark.id, article: url}}});
+            variables: {input: { id: userInfo.bookmark.id, article: url}}});
 
       }
     } 
     else            // dislike
     {
-      let idx = getIdx(user, url);
+      let idx = getIdx(userInfo, url);
       (idx > -1) && await API.graphql({query: removeArticleFromBookmarks,
-        variables: {input: { id: user.bookmark.id, articleIndex: idx}}});
+        variables: {input: { id: userInfo.bookmark.id, articleIndex: idx}}});
     }
-    setFlag(!flag);
+    setFlag(!flag);    
   };
 
 

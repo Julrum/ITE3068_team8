@@ -36,6 +36,7 @@ const TodayNews = () => {
             large
             style={{ height: '100%' }}
             userInfo={userInfo}
+            setUserInfo={setUserInfo}
           />
         </Content>
         <Content>
@@ -44,6 +45,7 @@ const TodayNews = () => {
             large
             style={{ height: '100%' }}
             userInfo={userInfo}
+            setUserInfo={setUserInfo}
           />
         </Content>
         <Content>
@@ -54,6 +56,7 @@ const TodayNews = () => {
             large
             style={{ height: '100%' }}
             userInfo={userInfo}
+            setUserInfo={setUserInfo}
           />
         </Content>
       </StyledNewsContainer>
