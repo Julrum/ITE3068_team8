@@ -8,7 +8,7 @@ import { getUserByEmail } from '../../graphql/queries';
 const Readinglist = () => {
 
   let [ userInfo, setUserInfo ] = useState();
-  let [ bookmarks, setBookmarks ] = useState([]);
+  let [ bookmarks, setBookmarks ] = useState();
 
   useEffect(() => {
     async function getUserInfo() {
@@ -30,7 +30,6 @@ const Readinglist = () => {
 
   useEffect(() => {
     if(userInfo) {
-      console.log(userInfo.bookmark.bookmarkList[0]);
       setBookmarks(userInfo.bookmark.bookmarkList);
     }
   }, [userInfo])
@@ -42,9 +41,10 @@ const Readinglist = () => {
   return (
     <Layout>
       <News>
-        {(bookmarks.length > 0 ) ? bookmarks.map((url) => (
-          <NewsItem url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>
-        )) : <EmptyBookmarks>"북마크한 기사가 없습니다!"</EmptyBookmarks>}
+        { bookmarks && (bookmarks.length > 0 ) && bookmarks.map((url) => (
+          <NewsItem url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>))
+        }
+        { bookmarks && (bookmarks.length === 0 ) && <EmptyBookmarks>"북마크한 기사가 없습니다!"</EmptyBookmarks> }
       </News>
     </Layout>
   );
