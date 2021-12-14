@@ -9,6 +9,7 @@ export const getUrl = async (query, display) => {
         params: {
           query: `${query}`,
           display: `${display}`,
+          sort: 'sim',
         },
         headers: {
           'X-Naver-Client-Id': process.env.REACT_APP_API_ID,

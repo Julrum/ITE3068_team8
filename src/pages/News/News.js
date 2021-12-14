@@ -11,7 +11,7 @@ import {
 } from './News.style';
 import { Auth, API } from 'aws-amplify';
 import { getUserByEmail } from '../../graphql/queries';
-import { sidebarData } from './dummydata';
+import { sidebarData } from './sidebarData';
 import { getUrl } from '../../api';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
 import ProfileWithLabel from '../../components/molecules/ProfileWithLabel/ProfileWithLabel';
@@ -22,7 +22,7 @@ const News = () => {
   const [urlsError, setUrlsError] = useState(null);
   const [userInfo, setUserInfo] = useState();
 
-  const fetchUrl = async (keywords, display) => {
+  const fetchUrl = async (keywords, display, sort) => {
     setUrls([]);
     setUrlsError(null);
 
@@ -56,12 +56,12 @@ const News = () => {
   }, []);
 
   const handleClick = (keyword, index, selected) => {
-    fetchUrl(keyword, 1);
+    fetchUrl(`${keyword} 대선`, 5);
     if (index !== selected) {
       setSelected(index);
     } else {
       setSelected(-1);
-      fetchUrl('대선', 1);
+      fetchUrl('대선', 5);
     }
   };
 
