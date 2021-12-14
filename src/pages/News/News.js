@@ -85,7 +85,7 @@ const News = () => {
             <Section>
               <Label>후보 뉴스</Label>
               <NewsItem
-                url="https://news.mt.co.kr/mtview.php?no=2021120118490012787"
+                url="https://newsis.com/view/?id=NISX20211213_0001686472&cID=10301&pID=10300"
                 large
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
@@ -94,12 +94,12 @@ const News = () => {
             <Section>
               <Label>선거 뉴스</Label>
               <NewsItem
-                url="https://www.sedaily.com/NewsView/22V5FKAI0Z"
+                url="https://www.khan.co.kr/national/national-general/article/202112141315001"
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
               />
               <NewsItem
-                url="http://www.busan.com/view/busan/view.php?code=2021120119293257464"
+                url="http://news.tvchosun.com/site/data/html_dir/2021/12/13/2021121390089.html"
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
               />

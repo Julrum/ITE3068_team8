@@ -32,7 +32,7 @@ const TodayNews = () => {
       <StyledNewsContainer>
         <Content>
           <NewsItem
-            url={'https://news.mt.co.kr/mtview.php?no=2021120118490012787'}
+            url={'http://edu.chosun.com/site/data/html_dir/2021/12/14/2021121401248.html'}
             large
             style={{ height: '100%' }}
             userInfo={userInfo}
@@ -41,7 +41,7 @@ const TodayNews = () => {
         </Content>
         <Content>
           <NewsItem
-            url={'https://www.sedaily.com/NewsView/22V5FKAI0Z'}
+            url={'http://www.segye.com/newsView/20211213514759?OutUrl=naver'}
             large
             style={{ height: '100%' }}
             userInfo={userInfo}
@@ -51,7 +51,7 @@ const TodayNews = () => {
         <Content>
           <NewsItem
             url={
-              'https://news.jtbc.joins.com/article/article.aspx?news_id=NB12035813'
+              'https://newsis.com/view/?id=NISX20211213_0001686472&cID=10301&pID=10300'
             }
             large
             style={{ height: '100%' }}
