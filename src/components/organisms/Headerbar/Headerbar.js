@@ -3,9 +3,10 @@ import { Auth, Hub, API } from 'aws-amplify';
 import { Alert, AlertTitle, Button, Snackbar } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { StylesProvider } from '@mui/styles';
+import { Link } from 'react-router-dom';
 import Modal from '../../organisms/Modal';
 import { ReactComponent as Bookmark } from '../../../assets/bookmark-heart.svg';
-import {createUser, createBookmarks } from '../../../graphql/mutations';
+import { createUser, createBookmarks } from '../../../graphql/mutations';
 import {
   StyledHeaderbar,
   StyledTitle,
@@ -66,7 +67,7 @@ const Headerbar = () => {
           state: 'success',
         });
       setUser(currentUser);
-      window.location.replace("/");
+      window.location.replace('/');
       closeLoginModal();
     } catch (error) {
       setAlertState({
@@ -94,13 +95,21 @@ const Headerbar = () => {
           description: '이메일을 확인해주십시오.',
           state: 'success',
         });
-        
-        let bmk = await API.graphql({query: createBookmarks,
-          variables: {input: {bookmarkList: []}}})
-          .catch(e => console.log(e));
-        await API.graphql({query: createUser,
-          variables: {input: {email: newId, name: newId, bookmarkId: bmk.data.createBookmarks.id}}})
-          .catch(e => console.log(e));
+
+        let bmk = await API.graphql({
+          query: createBookmarks,
+          variables: { input: { bookmarkList: [] } },
+        }).catch((e) => console.log(e));
+        await API.graphql({
+          query: createUser,
+          variables: {
+            input: {
+              email: newId,
+              name: newId,
+              bookmarkId: bmk.data.createBookmarks.id,
+            },
+          },
+        }).catch((e) => console.log(e));
       }
       closeLoginModal();
       closeRegisterModal();
@@ -123,7 +132,7 @@ const Headerbar = () => {
         state: 'success',
       });
       setUser(null);
-      window.location.replace("/");
+      window.location.replace('/');
     } catch (error) {
       setAlertState({
         message: '로그아웃에 실패하였습니다.',
@@ -177,6 +186,8 @@ const Headerbar = () => {
         <StyledBadgeArea>
           {user && (
             <Button
+              component={Link}
+              to="/readinglist"
               variant="outlined"
               startIcon={<Bookmark width="25" height="25" fill="#4D4DFF" />}
             >
