@@ -36,12 +36,12 @@ const News = () => {
           temp = temp.concat(item.links);
         });
 
-        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0, 5);
-        console.log(temp);
+        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0,100);
+        // console.log(temp);
         setUrls(temp);
       }
       else
-        setUrls(response.data.body.cand[cand-1].links);
+        setUrls(response.data.body.cand[cand-1].links.sort(() => Math.random() - 0.5));
     }
   };
   useEffect(() => {
