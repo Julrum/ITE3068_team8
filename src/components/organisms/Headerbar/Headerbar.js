@@ -105,7 +105,6 @@ const Headerbar = () => {
           variables: {
             input: {
               email: newId,
-              name: newId,
               bookmarkId: bmk.data.createBookmarks.id,
             },
           },

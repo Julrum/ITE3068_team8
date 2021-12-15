@@ -11,45 +11,11 @@ export const onBookmarksChanged = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo {
-    onCreateTodo {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo {
-    onUpdateTodo {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo {
-    onDeleteTodo {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
       email
-      name
       createdAt
       bookmarkId
       bookmark {
@@ -67,7 +33,6 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser {
       id
       email
-      name
       createdAt
       bookmarkId
       bookmark {
@@ -85,7 +50,6 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser {
       id
       email
-      name
       createdAt
       bookmarkId
       bookmark {
