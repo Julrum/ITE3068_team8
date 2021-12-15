@@ -6,9 +6,8 @@ import { Auth, API } from 'aws-amplify';
 import { getUserByEmail } from '../../graphql/queries';
 
 const Readinglist = () => {
-
-  let [ userInfo, setUserInfo ] = useState();
-  let [ bookmarks, setBookmarks ] = useState();
+  const [userInfo, setUserInfo] = useState();
+  const [bookmarks, setBookmarks] = useState();
 
   useEffect(() => {
     async function getUserInfo() {
@@ -26,13 +25,14 @@ const Readinglist = () => {
     }
 
     getUserInfo();
+    return () => setBookmarks([]);
   }, []);
 
   useEffect(() => {
-    if(userInfo) {
+    if (userInfo) {
       setBookmarks(userInfo.bookmark.bookmarkList);
     }
-  }, [userInfo])
+  }, [userInfo]);
 
   useEffect(() => {
     document.title = 'Daesun | 읽기목록';
@@ -41,10 +41,19 @@ const Readinglist = () => {
   return (
     <Layout>
       <News>
-        { bookmarks && (bookmarks.length > 0 ) && bookmarks.map((url) => (
-          <NewsItem url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>))
-        }
-        { bookmarks && (bookmarks.length === 0 ) && <EmptyBookmarks>"북마크한 기사가 없습니다!"</EmptyBookmarks> }
+        {bookmarks &&
+          bookmarks.length > 0 &&
+          bookmarks.map((url) => (
+            <NewsItem
+              key={url}
+              url={url}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+            />
+          ))}
+        {bookmarks && bookmarks.length === 0 && (
+          <EmptyBookmarks>"북마크한 기사가 없습니다!"</EmptyBookmarks>
+        )}
       </News>
     </Layout>
   );

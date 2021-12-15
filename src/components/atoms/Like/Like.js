@@ -9,7 +9,7 @@ import { onBookmarksChanged } from '../../../graphql/subscriptions';
 import { StyledLike } from './Like.style';
 
 const Like = ({ url, userInfo, setUserInfo }) => {
-  let [flag, setFlag] = useState();
+  const [flag, setFlag] = useState();
 
   let getIdx = (user, url) => {
     let bList = user.bookmark.bookmarkList;
