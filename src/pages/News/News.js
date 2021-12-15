@@ -22,15 +22,26 @@ const News = () => {
   const [urlsError, setUrlsError] = useState(null);
   const [userInfo, setUserInfo] = useState();
 
-  const fetchUrl = async (keywords, display, sort) => {
+  const fetchUrl = async (cand, sort) => {
     setUrls([]);
     setUrlsError(null);
 
-    const response = await getUrl(keywords, display);
+    const response = await getUrl();
 
     if (response.error) setUrlsError(response.error);
     else {
-      setUrls(response.data.items);
+      if (cand == 0){
+        let temp = []; //(response.data.body.cand[0].links).concat(response.data.body.cand[1].links);
+        response.data.body.cand.forEach((item) => {
+          temp = temp.concat(item.links);
+        });
+        console.log(temp);
+        console.log(cand);
+        console.log([...new Set(temp)]);
+        setUrls([...new Set(temp)]);
+      }
+      else
+        setUrls(response.data.body.cand[cand-1].links);
     }
   };
   useEffect(() => {
@@ -52,16 +63,16 @@ const News = () => {
     }
 
     getUserInfo();
-    fetchUrl('대선', 5);
+    fetchUrl(0);
   }, []);
 
-  const handleClick = (keyword, index, selected) => {
-    fetchUrl(`${keyword} 대선`, 5);
+  const handleClick = (index, selected) => {
+    fetchUrl(index+1);
     if (index !== selected) {
       setSelected(index);
     } else {
       setSelected(-1);
-      fetchUrl('대선', 5);
+      fetchUrl(0);
     }
   };
 
@@ -71,7 +82,7 @@ const News = () => {
         {sidebarData.map((item, index) => (
           <SidebarItem
             key={index}
-            onClick={() => handleClick(item.name, index, selected)}
+            onClick={() => handleClick(index, selected)}
             index={index}
             selected={selected}
           >
@@ -110,7 +121,7 @@ const News = () => {
             urls.map((item, index) => (
               <NewsItem
                 key={index}
-                url={item.originallink}
+                url={item}
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
               />

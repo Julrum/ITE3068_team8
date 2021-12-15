@@ -1,21 +1,13 @@
 import axios from 'axios';
 import { resolve } from './resolve';
 
-export const getUrl = async (query, display) => {
-  let url = `${process.env.REACT_APP_API_URL}`;
+export const getUrl = async () => {
+  let url = 'https://32l8ao0ym5.execute-api.ap-northeast-2.amazonaws.com/0-1/newsurl';
+
+
   return resolve(
-    axios
-      .get(url, {
-        params: {
-          query: `${query}`,
-          display: `${display}`,
-          sort: 'sim',
-        },
-        headers: {
-          'X-Naver-Client-Id': process.env.REACT_APP_API_ID,
-          'X-Naver-Client-Secret': process.env.REACT_APP_API_KEY,
-        },
-      })
-      .then((res) => res.data),
-  );
+      axios.get(url)
+        .then((Response) => Response.data))
+        .catch((Error)=>{console.log(Error);}
+    )
 };
