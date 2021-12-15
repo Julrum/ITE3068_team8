@@ -28,17 +28,17 @@ const News = () => {
 
     const response = await getUrl();
 
-    if (response.error) setUrlsError(response.error);
+    if (response.error) setUrlsError(response.error); 
     else {
-      if (cand == 0){
+      if (cand === 0){
         let temp = []; //(response.data.body.cand[0].links).concat(response.data.body.cand[1].links);
         response.data.body.cand.forEach((item) => {
           temp = temp.concat(item.links);
         });
+
+        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0, 5);
         console.log(temp);
-        console.log(cand);
-        console.log([...new Set(temp)]);
-        setUrls([...new Set(temp)]);
+        setUrls(temp);
       }
       else
         setUrls(response.data.body.cand[cand-1].links);
