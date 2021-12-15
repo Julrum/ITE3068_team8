@@ -36,12 +36,9 @@ const News = () => {
           temp = temp.concat(item.links);
         });
 
-        temp = temp.sort(() => Math.random() - 0.5).slice(0, 5);
-
+        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0, 5);
         console.log(temp);
-        console.log(cand);
-        console.log([...new Set(temp)]);
-        setUrls([...new Set(temp)]);
+        setUrls(temp);
       }
       else
         setUrls(response.data.body.cand[cand-1].links);
@@ -120,7 +117,7 @@ const News = () => {
             </Section>
           </Header>
           {urlsError && <div>뉴스를 불러오지 못했습니다.</div>}
-          {/* {urls &&
+          {urls &&
             urls.map((item, index) => (
               <NewsItem
                 key={index}
@@ -128,7 +125,7 @@ const News = () => {
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
               />
-            ))} */}
+            ))}
         </Content>
       </ContentLayout>
     </PageLayout>
