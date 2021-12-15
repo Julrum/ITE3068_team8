@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { Auth, API } from 'aws-amplify';
 import {
   StyledTodayNews,
@@ -10,20 +10,23 @@ import NewsItem from '../../molecules/NewsItem/NewsItem';
 import { getUserByEmail } from '../../../graphql/queries';
 
 const TodayNews = () => {
-
-  let [ userInfo, setUserInfo ] = useState();
+  const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
     async function getUserInfo() {
-      let login = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
-      if(login)  {
-        let user = await API.graphql({query: getUserByEmail, variables: {email: login.attributes.email}});
+      let login = await Auth.currentAuthenticatedUser().catch((e) =>
+        console.log(e),
+      );
+      if (login) {
+        let user = await API.graphql({
+          query: getUserByEmail,
+          variables: { email: login.attributes.email },
+        });
         setUserInfo(user.data.getUserByEmail.items[0]);
       }
       return 1;
     }
     getUserInfo();
-    
   }, []);
 
   return (
@@ -32,7 +35,9 @@ const TodayNews = () => {
       <StyledNewsContainer>
         <Content>
           <NewsItem
-            url={'http://edu.chosun.com/site/data/html_dir/2021/12/14/2021121401248.html'}
+            url={
+              'http://edu.chosun.com/site/data/html_dir/2021/12/14/2021121401248.html'
+            }
             large
             style={{ height: '100%' }}
             userInfo={userInfo}

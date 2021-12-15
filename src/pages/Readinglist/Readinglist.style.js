@@ -14,9 +14,9 @@ export const News = styled.div`
   width: 900px;
 `;
 
-export const EmptyBookmarks = styled.div` 
+export const EmptyBookmarks = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 100px;
   font-size: 28px;
-`
+`;
