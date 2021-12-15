@@ -28,13 +28,16 @@ const News = () => {
 
     const response = await getUrl();
 
-    if (response.error) setUrlsError(response.error);
+    if (response.error) setUrlsError(response.error); 
     else {
-      if (cand == 0){
+      if (cand === 0){
         let temp = []; //(response.data.body.cand[0].links).concat(response.data.body.cand[1].links);
         response.data.body.cand.forEach((item) => {
           temp = temp.concat(item.links);
         });
+
+        temp = temp.sort(() => Math.random() - 0.5).slice(0, 5);
+
         console.log(temp);
         console.log(cand);
         console.log([...new Set(temp)]);
@@ -117,7 +120,7 @@ const News = () => {
             </Section>
           </Header>
           {urlsError && <div>뉴스를 불러오지 못했습니다.</div>}
-          {urls &&
+          {/* {urls &&
             urls.map((item, index) => (
               <NewsItem
                 key={index}
@@ -125,7 +128,7 @@ const News = () => {
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
               />
-            ))}
+            ))} */}
         </Content>
       </ContentLayout>
     </PageLayout>
