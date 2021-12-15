@@ -14,6 +14,7 @@ import {
   StyledTitle,
   StyledSkeleton,
   StyledContentArea,
+  StyledFooter,
 } from './NewsItem.style';
 
 const NewsItem = ({ url, large, userInfo, setUserInfo, ...rest }) => {
@@ -88,13 +89,15 @@ const NewsItem = ({ url, large, userInfo, setUserInfo, ...rest }) => {
               <StyledTitle>{metadata.title}</StyledTitle>
               <StyledDescription>{metadata.description}</StyledDescription>
             </StyledTextArea>
-            <StyledPublisher large={large}>
-              <Like url={url} userInfo={userInfo} setUserInfo={setUserInfo}/>
-              {metadata.logo && metadata.logo.url && (
-                <StyledPublisherIcon src={metadata.logo.url} alt="" />
-              )}
-              <StyledPublisherUrl>{metadata.publisher}</StyledPublisherUrl>
-            </StyledPublisher>
+            <StyledFooter large={large}>
+              <StyledPublisher>
+                {metadata.logo && metadata.logo.url && (
+                  <StyledPublisherIcon src={metadata.logo.url} alt="" />
+                )}
+                <StyledPublisherUrl>{metadata.publisher}</StyledPublisherUrl>
+              </StyledPublisher>
+              <Like url={url} userInfo={userInfo} setUserInfo={setUserInfo} />
+            </StyledFooter>
           </StyledContentArea>
         </StyledNewsItem>
       )}

@@ -5,7 +5,7 @@ export const StyledSkeleton = styled.div`
   display: flex;
 `;
 
-export const StyledNewsItem = styled.div` 
+export const StyledNewsItem = styled.div`
   max-height: 340px;
   width: 320px;
   min-width: 320px;
@@ -54,10 +54,15 @@ export const StyledDescription = styled.div`
   text-align: left;
 `;
 
-export const StyledPublisher = styled.div`
+export const StyledFooter = styled.div`
   transform: translateY(calc(100%-24px));
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-top: 3px;
+`;
+
+export const StyledPublisher = styled.div`
+  display: flex;
 `;
 
 export const StyledPublisherIcon = styled.img`
@@ -71,7 +76,7 @@ export const StyledPublisherUrl = styled.div`
   color: ${({ theme }) => theme.colors.sub};
 `;
 
-export const StyledContentArea = styled.div` 
+export const StyledContentArea = styled.div`
   margin-left: 10px;
   width: 100%;
   min-width: 160px;
@@ -84,7 +89,7 @@ export const StyledContentArea = styled.div`
       margin-top: 10px;
       margin-left: 0px;
     `}
-`
+`;
 
 export const StyledTextArea = styled.div`
   width: 100%;
