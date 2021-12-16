@@ -31,7 +31,7 @@ const NewsItem = ({ url, large, userInfo, setUserInfo, ...rest }) => {
     let status = 'success'
 
     await axios
-      .get(url)
+      .get('https://cors-anywhere.herokuapp.com/'+url, { crossdomain: true })
       .then((Response) => {
         const $1 = cheerio.load(Response.data);
         $1('head>meta').each((index, item) => {
