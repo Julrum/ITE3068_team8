@@ -8,9 +8,33 @@ import {
 } from './TodayNews.style';
 import NewsItem from '../../molecules/NewsItem/NewsItem';
 import { getUserByEmail } from '../../../graphql/queries';
+import { onBookmarksChanged } from '../../../graphql/subscriptions';
 
 const TodayNews = () => {
   const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    let sub;
+    async function afterChange() {
+      sub = await API.graphql({
+        query: onBookmarksChanged,
+        variables: { id: userInfo.bookmark.id },
+      }).subscribe({
+        next: (newItem) => {
+          newItem &&
+            setUserInfo({
+              ...userInfo,
+              bookmark: newItem.value.data.onBookmarksChanged,
+            });
+        },
+      });
+    }
+    userInfo && afterChange();
+
+    return () => {
+      sub && sub.unsubscribe();
+    };
+  }, [userInfo, setUserInfo]);
 
   useEffect(() => {
     async function getUserInfo() {

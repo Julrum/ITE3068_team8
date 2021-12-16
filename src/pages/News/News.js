@@ -15,6 +15,7 @@ import { sidebarData } from './sidebarData';
 import { getUrl } from '../../api';
 import NewsItem from '../../components/molecules/NewsItem/NewsItem';
 import ProfileWithLabel from '../../components/molecules/ProfileWithLabel/ProfileWithLabel';
+import { onBookmarksChanged } from '../../graphql/subscriptions';
 
 const News = () => {
   const [selected, setSelected] = useState();
@@ -28,20 +29,23 @@ const News = () => {
 
     const response = await getUrl();
 
-    if (response.error) setUrlsError(response.error); 
+    if (response.error) setUrlsError(response.error);
     else {
-      if (cand === 0){
+      if (cand === 0) {
         let temp = []; //(response.data.body.cand[0].links).concat(response.data.body.cand[1].links);
         response.data.body.cand.forEach((item) => {
           temp = temp.concat(item.links);
         });
 
-        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0,100);
+        temp = [...new Set(temp)].sort(() => Math.random() - 0.5).slice(0, 100);
         // console.log(temp);
         setUrls(temp);
-      }
-      else
-        setUrls(response.data.body.cand[cand-1].links.sort(() => Math.random() - 0.5));
+      } else
+        setUrls(
+          response.data.body.cand[cand - 1].links.sort(
+            () => Math.random() - 0.5,
+          ),
+        );
     }
   };
   useEffect(() => {
@@ -66,8 +70,31 @@ const News = () => {
     fetchUrl(0);
   }, []);
 
+  useEffect(() => {
+    let sub;
+    async function afterChange() {
+      sub = await API.graphql({
+        query: onBookmarksChanged,
+        variables: { id: userInfo.bookmark.id },
+      }).subscribe({
+        next: (newItem) => {
+          newItem &&
+            setUserInfo({
+              ...userInfo,
+              bookmark: newItem.value.data.onBookmarksChanged,
+            });
+        },
+      });
+    }
+    userInfo && afterChange();
+
+    return () => {
+      sub && sub.unsubscribe();
+    };
+  }, [userInfo, setUserInfo]);
+
   const handleClick = (index, selected) => {
-    fetchUrl(index+1);
+    fetchUrl(index + 1);
     if (index !== selected) {
       setSelected(index);
     } else {
