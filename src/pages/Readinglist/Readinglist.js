@@ -4,6 +4,7 @@ import NewsItem from '../../components/molecules/NewsItem/NewsItem';
 
 import { Auth, API } from 'aws-amplify';
 import { getUserByEmail } from '../../graphql/queries';
+import { onBookmarksChanged } from '../../graphql/subscriptions';
 
 const Readinglist = () => {
   const [userInfo, setUserInfo] = useState();
@@ -27,6 +28,29 @@ const Readinglist = () => {
     getUserInfo();
     return () => setBookmarks([]);
   }, []);
+
+  useEffect(() => {
+    let sub;
+    async function afterChange() {
+      sub = await API.graphql({
+        query: onBookmarksChanged,
+        variables: { id: userInfo.bookmark.id },
+      }).subscribe({
+        next: (newItem) => {
+          newItem &&
+            setUserInfo({
+              ...userInfo,
+              bookmark: newItem.value.data.onBookmarksChanged,
+            });
+        },
+      });
+    }
+    userInfo && afterChange();
+
+    return () => {
+      sub && sub.unsubscribe();
+    };
+  }, [userInfo, setUserInfo]);
 
   useEffect(() => {
     if (userInfo) {
